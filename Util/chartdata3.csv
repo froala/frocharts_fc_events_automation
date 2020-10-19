@@ -1,0 +1,5868 @@
+bubble,"<html>
+
+<head>
+      <title>My first chart using FroalaCharts Suite XT</title>
+      
+    <!-- Include fusioncharts core library -->
+      <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+      
+    <!-- Include fusion theme -->
+      
+    <!-- <script type=""text/javascript"" src=""./build/3.13.4-rc.1/fusioncharts.theme.candy.js ""></script>  -->
+      <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'bubble',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    ""chart"": {
+                        ""caption"": ""Sales Analysis of Shoe Brands"",
+                        ""subcaption"": ""Last Quarter"",
+                        ""xAxisMinValue"": ""0"",
+                        ""xAxisMaxValue"": ""100"",
+                        ""yAxisMinValue"": ""0"",
+                        ""yAxisMaxValue"": ""30000"",
+                        ""plotFillAlpha"": ""70"",
+                        ""plotFillHoverColor"": ""#6baa01"",
+                        ""xAxisName"": ""Average Price"",
+                        ""yAxisName"": ""Units Sold"",
+                        ""numDivlines"": ""2"",
+                        ""showValues"": ""1"",
+                        ""plotTooltext"": ""$name : Profit Contribution - $zvalue%"",
+                        ""drawQuadrant"": ""1"",
+                        ""quadrantLineAlpha"": ""80"",
+                        ""quadrantLineThickness"": ""3"",
+                        ""quadrantXVal"": ""50"",
+                        ""quadrantYVal"": ""15000"",
+                        ""quadrantLabelTL"": ""Low Price / High Sale"",
+                        ""quadrantLabelTR"": ""High Price / High Sale"",
+                        ""quadrantLabelBL"": ""Low Price / Low Sale"",
+                        ""quadrantLabelBR"": ""High Price / Low Sale"",
+                        ""use3dlighting"": ""0"",
+                        ""showAlternateHGridColor"": ""0"",
+                        ""showAlternateVGridColor"": ""0"",
+                        ""theme"": ""fusion"",
+                        ""exportEnabled"": ""1"",
+                        ""exportFileName"": ""DemoExport"",
+                        ""bgImage"": ""https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg""
+
+                    },
+                    ""categories"": [{
+                        ""category"": [{
+                                ""label"": ""$0"",
+                                ""x"": ""0""
+                            },
+                            {
+                                ""label"": ""$20"",
+                                ""x"": ""20"",
+                                ""showverticalline"": ""1""
+                            },
+                            {
+                                ""label"": ""$40"",
+                                ""x"": ""40"",
+                                ""showverticalline"": ""1""
+                            },
+                            {
+                                ""label"": ""$60"",
+                                ""x"": ""60"",
+                                ""showverticalline"": ""1""
+                            },
+                            {
+                                ""label"": ""$80"",
+                                ""x"": ""80"",
+                                ""showverticalline"": ""1""
+                            },
+                            {
+                                ""label"": ""$100"",
+                                ""x"": ""100"",
+                                ""showverticalline"": ""1""
+                            }
+                        ]
+                    }],
+                    ""dataset"": [{
+                        ""color"": ""#00aee4"",
+                        ""data"": [{
+                                ""x"": ""80"",
+                                ""y"": ""15000"",
+                                ""z"": ""24"",
+                                ""name"": ""Nike""
+                            },
+                            {
+                                ""x"": ""60"",
+                                ""y"": ""18500"",
+                                ""z"": ""26"",
+                                ""name"": ""Adidas""
+                            },
+                            {
+                                ""x"": ""50"",
+                                ""y"": ""19450"",
+                                ""z"": ""19"",
+                                ""name"": ""Puma""
+                            },
+                            {
+                                ""x"": ""65"",
+                                ""y"": ""10500"",
+                                ""z"": ""8"",
+                                ""name"": ""Fila""
+                            },
+                            {
+                                ""x"": ""43"",
+                                ""y"": ""8750"",
+                                ""z"": ""5"",
+                                ""name"": ""Lotto""
+                            },
+                            {
+                                ""x"": ""32"",
+                                ""y"": ""22000"",
+                                ""z"": ""10"",
+                                ""name"": ""Reebok""
+                            },
+                            {
+                                ""x"": ""44"",
+                                ""y"": ""13000"",
+                                ""z"": ""9"",
+                                ""name"": ""Woodland""
+                            }
+                        ]
+                    }],
+                    ""trendlines"": [{
+                        ""line"": [{
+                                ""startValue"": ""20000"",
+                                ""endValue"": ""30000"",
+                                ""isTrendZone"": ""1"",
+                                ""color"": ""#aaaaaa"",
+                                ""alpha"": ""14""
+                            },
+                            {
+                                ""startValue"": ""10000"",
+                                ""endValue"": ""20000"",
+                                ""isTrendZone"": ""1"",
+                                ""color"": ""#aaaaaa"",
+                                ""alpha"": ""7""
+                            }
+                        ]
+                    }],
+                    ""vTrendlines"": [{
+                        ""line"": [{
+                            ""startValue"": ""44"",
+                            ""isTrendZone"": ""0"",
+                            ""color"": ""#0066cc"",
+                            ""thickness"": ""1"",
+                            ""dashed"": ""1"",
+                            ""displayValue"": ""Gross Avg.""
+                        }]
+                    }]
+                }
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+      <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_URL,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include froalacharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+    <!-- <script type=""text/javascript"" src=""./build/3.13.4-rc.1/froalacharts.theme.candy.js ""></script>  -->
+    <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'jsonurl',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: 'https://static.fusioncharts.com/fiddle/froalacharts/getSampleJSON.php'
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_URLerror,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include froalacharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+    <!-- <script type=""text/javascript"" src=""./build/3.13.4-rc.1/froalacharts.theme.candy.js ""></script>  -->
+    <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'jsonurl',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: '_https://static.fusioncharts.com/fiddle/getSampleJSON.php'
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_dlreq_cancelled,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include fusioncharts core library -->
+    <script type=""text/javascript"" src=""./build/froalachart/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+    <script type=""text/javascript"" src=""./build/froalacharts/themes/froalacharts.theme.candy.js
+    <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+
+        FroalaCharts.addEventListener('dataloadrequested', function (e, d) {
+            e.preventDefault()
+        });
+
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'jsonurl',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: ""https://static.fusioncharts.com/fiddle/getSampleJSON.php""
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_du_cancelled,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include fusioncharts core library -->
+    <script type=""text/javascript"" src=""./build/froalachart/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+    <script type=""text/javascript"" src=""./build/froalacharts/themes/froalacharts.theme.candy.js
+    <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+
+        FroalaCharts.addEventListener('beforedataupdate', function (e, d) {
+            e.preventDefault()
+        });
+
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'jsonurl',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: ""https://static.fusioncharts.com/fiddle/getSampleJSON.php""
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_invalid,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include fusioncharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+   
+    <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: ""some invalid data""
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_nodata,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include fusioncharts core library -->
+    <script type=""text/javascript"" src=""./build/froalachart/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+    <script type=""text/javascript"" src=""./build/froalacharts/themes/froalacharts.theme.candy.js
+    <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: """"
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie,"<html>
+
+<head>
+     <title>Archana My first chart using FroalaCharts Suite XT</title>
+     
+    <!-- Include froalacharts core library -->
+          <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+     
+    <!-- Include fusion theme -->
+     
+    <!-- <script type=""""text/javascript"" src=""""./build/3.13.4-rc.1/froalacharts.theme.candy.js """"></script>  -->
+     <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#0075c2'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Event Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    ""chart"": {
+                        ""caption"": ""Split of Visitors by Age Group"",
+                        ""subCaption"": ""Last year"",
+                        ""use3DLighting"": ""0"",
+                        ""showPercentValues"": ""1"",
+                        ""decimals"": ""1"",
+                        ""useDataPlotColorForLabels"": ""1"",
+                        ""theme"": ""fusion"",
+                        ""exportEnabled"": ""1"",
+                        ""exportFileName"": ""DemoExport"",
+                        ""bgImage"": ""https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg"",
+                        ""exportEnabled"": ""1"",
+                        ""exportFileName"": ""DemoExport""
+
+                    },
+                    ""data"": [{
+                            ""label"": ""Teenage"",
+                            ""value"": ""1250400""
+                        },
+                        {
+                            ""label"": ""Adult"",
+                            ""value"": ""1463300""
+                        },
+                        {
+                            ""label"": ""Mid-age"",
+                            ""value"": ""1050700""
+                        },
+                        {
+                            ""label"": ""Senior"",
+                            ""value"": ""491000""
+                        }
+                    ]
+                }
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+     <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_bgImageError,"<html>
+
+<head>
+     <title>My first chart using FroalaCharts Suite XT</title>
+     
+    <!-- Include fusioncharts core library -->
+     <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+     
+    <!-- Include fusion theme -->
+     
+    <!-- <script type=""text/javascript"" src=""./build/3.13.4-rc.1/fusioncharts.theme.candy.js ""></script>  -->
+     <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#0075c2'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Event Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    ""chart"": {
+                        ""caption"": ""Split of Visitors by Age Group"",
+                        ""subCaption"": ""Last year"",
+                        ""use3DLighting"": ""0"",
+                        ""showPercentValues"": ""1"",
+                        ""decimals"": ""1"",
+                        ""useDataPlotColorForLabels"": ""1"",
+                        ""theme"": ""fusion"",
+                        ""bgImage"": ""https://__upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg""
+
+
+                    },
+                    ""data"": [{
+                            ""label"": ""Teenage"",
+                            ""value"": ""1250400""
+                        },
+                        {
+                            ""label"": ""Adult"",
+                            ""value"": ""1463300""
+                        },
+                        {
+                            ""label"": ""Mid-age"",
+                            ""value"": ""1050700""
+                        },
+                        {
+                            ""label"": ""Senior"",
+                            ""value"": ""491000""
+                        }
+                    ]
+                }
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+     <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+doughnut,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include froalacharts core library -->
+        <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+   
+    <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#0075c2'
+        });
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'doughnut',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    ""chart"": {
+                        ""caption"": ""Split of Revenue by Product Categories"",
+                        ""subCaption"": ""Last year"",
+                        ""numberPrefix"": ""$"",
+                        ""defaultCenterLabel"": ""Total revenue: $64.08K"",
+                        ""centerLabel"": ""Revenue from $label: $value"",
+                        ""decimals"": ""0"",
+                        ""theme"": ""fusion"",
+                        ""exportEnabled"": ""1"",
+                        ""exportFileName"": ""DemoExport""
+                    },
+                    ""data"": [{
+                            ""label"": ""Food"",
+                            ""value"": ""28504""
+                        },
+                        {
+                            ""label"": ""Apparels"",
+                            ""value"": ""14633""
+                        },
+                        {
+                            ""label"": ""Electronics"",
+                            ""value"": ""10507""
+                        },
+                        {
+                            ""label"": ""Household"",
+                            ""value"": ""4910""
+                        }
+                    ]
+                }
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_mousemove,"<html>
+
+<head>
+     <title>My first chart using FroalaCharts Suite XT</title>
+     
+    <!-- Include fusioncharts core library -->
+     <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+     
+    <!-- Include fusion theme -->
+     
+    <!-- <script type=""text/javascript"" src=""./build/3.13.4-rc.1/fusioncharts.theme.candy.js ""></script>  -->
+     <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#0075c2'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Event Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    ""chart"": {
+                        ""caption"": ""Split of Visitors by Age Group"",
+                        ""subCaption"": ""Last year"",
+                        ""use3DLighting"": ""0"",
+                        ""showPercentValues"": ""1"",
+                        ""decimals"": ""1"",
+                        ""useDataPlotColorForLabels"": ""1"",
+                        ""theme"": ""fusion"",
+                        ""bgImage"": ""https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg"",
+                        ""enableChartMouseMoveEvent"" : ""1""
+
+                    },
+                    ""data"": [{
+                            ""label"": ""Teenage"",
+                            ""value"": ""1250400""
+                        },
+                        {
+                            ""label"": ""Adult"",
+                            ""value"": ""1463300""
+                        },
+                        {
+                            ""label"": ""Mid-age"",
+                            ""value"": ""1050700""
+                        },
+                        {
+                            ""label"": ""Senior"",
+                            ""value"": ""491000""
+                        }
+                    ]
+                }
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+     <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+angulargauge,"<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+    <script src=""./build/froalacharts/froalacharts.js""></script>
+
+      <script type=""text/javascript"">
+	var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }		
+       var data = {  chart: {
+    caption: ""Walmart's Customer Satisfaction Score"",
+    subcaption: ""2017"",
+    lowerlimit: ""0"",
+    upperlimit: ""100"",
+    showvalue: ""1"",
+    numbersuffix: ""%"",
+    theme: ""fusion""
+  },
+  colorrange: {
+    color: [
+      {
+        minvalue: ""0"",
+        maxvalue: ""50"",
+        code: ""#F2726F""
+      },
+      {
+        minvalue: ""50"",
+        maxvalue: ""75"",
+        code: ""#FFC533""
+      },
+      {
+        minvalue: ""75"",
+        maxvalue: ""100"",
+        code: ""#62B58F""
+      }
+    ]
+  },
+  dials: {
+    dial: [
+      {
+        value: ""71"",
+        tooltext: ""<b>9%</b> lesser that target""
+      }
+    ]
+  },
+  trendpoints: {
+    point: [
+      {
+        startvalue: ""80"",
+        displayvalue: ""Target"",
+        thickness: ""2"",
+        color: ""#E15A26"",
+        usemarker: ""1"",
+        markerbordercolor: ""#E15A26"",
+        markertooltext: ""80%""
+      }
+    ]
+  }
+};
+            FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'angulargauge',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            fusioncharts.render();
+        });
+    </script>
+    
+</head>
+
+
+<div id=""msg"" class=""mb-20""> Chart data in the selected format will be displayed here.</div>
+
+<body>
+    <div id=""chart-container"">FusionCharts will render here</div>
+</body>
+
+</html>"
+,
+angulargauge_realerr,"<html>
+
+<head>
+     <title>My first chart using FroalaCharts Suite XT</title>
+     
+    <!-- Include fusioncharts core library -->
+     <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+     
+    <!-- Include fusion theme -->
+     
+    <!-- <script type=""text/javascript"" src=""./build/3.13.4-rc.1/fusioncharts.theme.candy.js ""></script>  -->
+     <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#0075c2'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'angulargauge',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Event Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    ""chart"": {
+                        ""caption"": ""Temperature status of deep freezers"",
+                        ""upperlimit"": ""-5"",
+                        ""lowerlimit"": ""-60"",
+                        ""captionPadding"": ""30"",
+                        ""showshadow"": ""0"",
+                        ""showvalue"": ""1"",
+                        ""useColorNameAsValue"": ""1"",
+                        ""placeValuesInside"": ""1"",
+                        ""theme"": ""fusion"",
+                        ""datastreamurl"": ""_multipleData.php""
+                    },
+                    ""colorrange"": {
+                        ""color"": [{
+                                ""minvalue"": ""-60"",
+                                ""maxvalue"": ""-35"",
+                                ""label"": ""Problem detected!"",
+                                ""code"": ""#ff0000""
+                            },
+                            {
+                                ""minvalue"": ""-35"",
+                                ""maxvalue"": ""-25"",
+                                ""label"": ""Alert!"",
+                                ""code"": ""#ff9900""
+                            },
+                            {
+                                ""minvalue"": ""-25"",
+                                ""maxvalue"": ""-5"",
+                                ""label"": ""All well!"",
+                                ""code"": ""#00ff00""
+                            }
+                        ]
+                    },
+                    ""alerts"": {
+                        ""alert"": [{
+                            ""minvalue"": ""25"",
+                            ""maxvalue"": ""50""
+                        }]
+                    },
+                    ""value"": ""-5""
+                }
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+     <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+heatmap,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include froalacharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+   
+    <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'heatmap',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Logo Events',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+            ""chart"": {
+                ""theme"": ""fint"",
+                    ""caption"": ""Top Smartphone Ratings"",
+                    ""subcaption"": ""By Features"",
+                    ""xAxisName"": ""Features"",
+                    ""yAxisName"": ""Model"",
+                    ""showPlotBorder"": ""1"",
+                    ""exportEnabled"": ""1"",
+                    ""exportFileName"": ""DemoExport""
+            },
+                ""rows"": {
+                ""row"": [{
+                    ""id"": ""SGS5"",
+                        ""label"": ""Samsung Galaxy S5""
+                }, {
+                    ""id"": ""HTC1M8"",
+                        ""label"": ""HTC One (M8)""
+                }, {
+                    ""id"": ""IPHONES5"",
+                        ""label"": ""Apple iPhone 5S""
+                }, {
+                    ""id"": ""LUMIA"",
+                        ""label"": ""Nokia Lumia 1520""
+                }]
+            },
+                ""columns"": {
+                ""column"": [{
+                    ""id"": ""processor"",
+                        ""label"": ""Processor""
+                }, {
+                    ""id"": ""screen"",
+                        ""label"": ""Screen Size""
+                }, {
+                    ""id"": ""price"",
+                        ""label"": ""Price""
+                }, {
+                    ""id"": ""backup"",
+                        ""label"": ""Battery Backup""
+                }, {
+                    ""id"": ""cam"",
+                        ""label"": ""Camera""
+                }]
+            },
+                ""dataset"": [{
+                ""data"": [{
+                    ""rowid"": ""SGS5"",
+                        ""columnid"": ""processor"",
+                        ""value"": ""8.7"",
+                        ""tlLabel"": ""Quad Core 2.5 GHz"",
+                        ""trLabel"": ""OS : Android 4.4 Kitkat""
+                }, {
+                    ""rowid"": ""SGS5"",
+                        ""columnid"": ""screen"",
+                        ""value"": ""8.5"",
+                        ""tlLabel"": ""5.1 inch"",
+                        ""trLabel"": ""AMOLED screen""
+                }, {
+                    ""rowid"": ""SGS5"",
+                        ""columnid"": ""price"",
+                        ""value"": ""9.3"",
+                        ""tlLabel"": ""$600""
+                }, {
+                    ""rowid"": ""SGS5"",
+                        ""columnid"": ""backup"",
+                        ""value"": ""9.7"",
+                        ""tlLabel"": ""29 Hrs"",
+                        ""trLabel"": ""Battery : 2800 MAH""
+                }, {
+                    ""rowid"": ""SGS5"",
+                        ""columnid"": ""cam"",
+                        ""value"": ""8"",
+                        ""tlLabel"": ""16 MP"",
+                        ""trLabel"": ""Front Camera : 2.1 MP""
+                }, {
+                    ""rowid"": ""HTC1M8"",
+                        ""columnid"": ""processor"",
+                        ""value"": ""9.2"",
+                        ""tlLabel"": ""Quad Core 2.3 GHz"",
+                        ""trLabel"": ""OS : Android 4.4 Kitkat""
+                }, {
+                    ""rowid"": ""HTC1M8"",
+                        ""columnid"": ""screen"",
+                        ""value"": ""8.3"",
+                        ""tlLabel"": ""5 inch"",
+                        ""trLabel"": ""LCD screen""
+                }, {
+                    ""rowid"": ""HTC1M8"",
+                        ""columnid"": ""price"",
+                        ""value"": ""7.3"",
+                        ""tlLabel"": ""$600""
+                }, {
+                    ""rowid"": ""HTC1M8"",
+                        ""columnid"": ""backup"",
+                        ""value"": ""8.8"",
+                        ""tlLabel"": ""20 Hrs"",
+                        ""trLabel"": ""Battery : 2600 MAH""
+                }, {
+                    ""rowid"": ""HTC1M8"",
+                        ""columnid"": ""cam"",
+                        ""value"": ""8.7"",
+                        ""tlLabel"": ""4 MP"",
+                        ""trLabel"": ""Front Camera : 5 MP""
+                }, {
+                    ""rowid"": ""IPHONES5"",
+                        ""columnid"": ""processor"",
+                        ""value"": ""9.1"",
+                        ""tlLabel"": ""Dual Core"",
+                        ""trLabel"": ""OS : iOS 7""
+                }, {
+                    ""rowid"": ""IPHONES5"",
+                        ""columnid"": ""screen"",
+                        ""value"": ""8.6"",
+                        ""tlLabel"": ""4 inch"",
+                        ""trLabel"": ""Retina LCD screen""
+                }, {
+                    ""rowid"": ""IPHONES5"",
+                        ""columnid"": ""price"",
+                        ""value"": ""7.2"",
+                        ""tlLabel"": ""$649""
+                }, {
+                    ""rowid"": ""IPHONES5"",
+                        ""columnid"": ""backup"",
+                        ""value"": ""8.4"",
+                        ""tlLabel"": ""10 Hrs"",
+                        ""trLabel"": ""Battery : 1560 MAH""
+                }, {
+                    ""rowid"": ""IPHONES5"",
+                        ""columnid"": ""cam"",
+                        ""value"": ""9.5"",
+                        ""tlLabel"": ""8 MP"",
+                        ""trLabel"": ""Front Camera : 1.2 MP""
+                }, {
+                    ""rowid"": ""LUMIA"",
+                        ""columnid"": ""processor"",
+                        ""value"": ""8.8"",
+                        ""tlLabel"": ""Quad Core 2.2 GHz"",
+                        ""trLabel"": ""OS: Windows Phone 8""
+                }, {
+                    ""rowid"": ""LUMIA"",
+                        ""columnid"": ""screen"",
+                        ""value"": ""9.1"",
+                        ""tlLabel"": ""6 inch"",
+                        ""trLabel"": ""LCD screen""
+                }, {
+                    ""rowid"": ""LUMIA"",
+                        ""columnid"": ""price"",
+                        ""value"": ""9.7"",
+                        ""tlLabel"": ""$470""
+                }, {
+                    ""rowid"": ""LUMIA"",
+                        ""columnid"": ""backup"",
+                        ""value"": ""9.2"",
+                        ""tlLabel"": ""27 Hrs"",
+                        ""trLabel"": ""Battery : 3400 MAH""
+                }, {
+                    ""rowid"": ""LUMIA"",
+                        ""columnid"": ""cam"",
+                        ""value"": ""8.1"",
+                        ""tlLabel"": ""20MP"",
+                        ""trLabel"": ""Front Camera : 1.2 MP""
+                }]
+            }],
+                ""colorRange"": {
+                //Showing Icon Legend by setting gradient attribute to 0
+                ""gradient"": ""1"",
+                    ""code"": ""#e24b1a"",
+                    ""color"": [{
+                    ""code"": ""#e24b1a"",
+                        ""minValue"": ""1"",
+                        ""maxValue"": ""5"",
+                        ""label"": ""Bad""
+                }, {
+                    ""code"": ""#f6bc33"",
+                        ""minValue"": ""5"",
+                        ""maxValue"": ""8.5"",
+                        ""label"": ""Average""
+                }, {
+                    ""code"": ""#6da81e"",
+                        ""minValue"": ""8.5"",
+                        ""maxValue"": ""10"",
+                        ""label"": ""Good""
+                }]
+            }
+        }
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+column,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include fusioncharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+    
+    <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'column',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Logo Events',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+            ""chart"": {
+                ""theme"": ""fint"",
+                    ""caption"": ""Comparison of Quarterly Revenue"",
+                    ""subCaption"": ""Last two years"",
+                    ""xAxisname"": ""Quarter"",
+                    ""yAxisName"": ""Amount ($)"",
+                    ""numberPrefix"": ""$""
+            },
+                ""categories"": [{
+                ""category"": [{
+                    ""label"": ""Q1""
+                }, {
+                    ""label"": ""Q2""
+                }, {
+                    ""label"": ""Q3""
+                }, {
+                    ""label"": ""Q4""
+                }]
+            }],
+                ""dataset"": [{
+                ""seriesname"": ""Previous Year"",
+                    ""data"": [{
+                    ""value"": ""10000""
+                }, {
+                    ""value"": ""11500""
+                }, {
+                    ""value"": ""12500""
+                }, {
+                    ""value"": ""15000""
+                }]
+            }, {
+                ""seriesname"": ""Current Year"",
+                    ""data"": [{
+                    ""value"": ""25400""
+                }, {
+                    ""value"": ""29800""
+                }, {
+                    ""value"": ""21800""
+                }, {
+                    ""value"": ""26800""
+                }]
+            }]
+        }
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+funnel,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include fusioncharts core library -->
+   
+	 <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+   
+    <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#0075c2'
+        });
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'funnel',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    ""chart"": {
+                        ""caption"": ""Website - Harry's SuperMart"",
+                        ""subcaption"": ""Visit to purchase - Conversion analysis for last year"",
+                        ""decimals"": ""1"",
+                        ""isHollow"": ""1"",
+                        ""labelDistance"": ""15"",
+                        ""is2D"": ""1"",
+                        ""plotTooltext"": ""Success : $percentOfPrevValue"",
+                        ""showPercentValues"": ""1"",
+                        ""theme"": ""fusion"",
+                        ""exportEnabled"": ""1"",
+                        ""exportFileName"": ""DemoExport""
+                    },
+                    ""data"": [{
+                            ""label"": ""Unique Website Visits"",
+                            ""value"": ""1460000""
+                        },
+                        {
+                            ""label"": ""Programme Details Section Visits"",
+                            ""value"": ""930000""
+                        },
+                        {
+                            ""label"": ""Attempts to Register"",
+                            ""value"": ""540000""
+                        },
+                        {
+                            ""label"": ""Successful Registrations"",
+                            ""value"": ""210000""
+                        },
+                        {
+                            ""label"": ""Logged In"",
+                            ""value"": ""190000""
+                        },
+                        {
+                            ""label"": ""Purchased on Introductory Offers"",
+                            ""value"": ""120000""
+                        }
+                    ]
+                }
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+combination,"<html>
+
+<head>
+     <title>My first chart using FroalaCharts Suite XT</title>
+     <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+   
+     <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        // FroalaCharts.addEventListener('beforedataload', function (e, d) {
+        //     e.preventDefault();
+        // });
+
+        // ""color"": ""#FF0000"",
+        //                 ""alpha"": 83,
+        //                 ""anchorBgColor"": ""#00FF00"",
+        //                 ""anchorBgAlpha"": ""37"",
+        //                 ""anchorAlpha"": ""78"",
+        //                 ""anchorBorderColor"": ""#0000FF"",
+        //                 ""anchorBorderThickness"": ""3"",
+        //                 ""anchorRadius"": ""12"",
+        //                 ""anchorSides"": ""4"",
+        //                 ""anchorStartAngle"": ""45"",
+        //                 ""plotFillHoverColor"": ""#FF0000"",
+        //                 ""anchorHoverAlpha"": ""98"",
+        //                 ""anchorHoverSides"": ""6"",
+        //                 ""dashed"": 1,
+        //                 ""valuePosition"": ""BELOW"",
+        //                 ""lineDashed"": 1
+
+
+        // ""color"": ""#00FFFF"",
+        // ""alpha"": 42,
+        // ""anchorBgColor"": ""#FF0000"",
+        // ""anchorBgAlpha"": ""52"",
+        // ""anchorAlpha"": ""84"",
+        // ""anchorBorderColor"": ""#00FF00"",
+        // ""anchorBorderThickness"": ""4"",
+        // ""anchorRadius"": ""11"",
+        // ""anchorSides"": ""5"",
+        // ""anchorStartAngle"": ""65"",
+        // ""anchorHoverColor"": ""#0000FF"",
+        // ""anchorHoverAlpha"": ""93"",
+        // ""anchorHoverSides"": ""8"",
+        // ""dashed"": 1,
+        // ""valuePosition"": ""ABOVE"",
+        // ""lineDashed"": 1
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'combination',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    ""chart"": {
+                        ""caption"": ""Revenues and Profits"",
+                        ""subCaption"": ""For last year"",
+                        ""xAxisname"": ""Month"",
+                        ""pYAxisName"": ""Amount (In USD)"",
+                        ""sYAxisName"": ""Profit %"",
+                        ""numberPrefix"": ""$"",
+                        ""sNumberSuffix"": ""%"",
+                        ""sYAxisMaxValue"": ""50"",
+                        ""theme"": ""fusion"",
+
+                        ""color"": ""#FF0000"",
+                        ""alpha"": 83,
+                        ""anchorBgColor"": ""#00FF00"",
+                        ""anchorBgAlpha"": ""37"",
+                        ""anchorAlpha"": ""78"",
+                        ""anchorBorderColor"": ""#0000FF"",
+                        ""anchorBorderThickness"": ""3"",
+                        ""anchorRadius"": ""12"",
+                        ""anchorSides"": ""4"",
+                        ""anchorStartAngle"": ""45"",
+                        ""plotFillHoverColor"": ""#FF0000"",
+                        ""anchorHoverAlpha"": ""98"",
+                        ""anchorHoverSides"": ""6"",
+                        ""dashed"": 1,
+                        ""valuePosition"": ""BELOW"",
+                        ""lineDashed"": 1,
+                        ""_link"": ""https://www.google.com/""
+                    },
+                    ""categories"": [{
+                        ""category"": [{
+                                ""label"": ""Jan""
+                            },
+                            {
+                                ""label"": ""Feb""
+                            },
+                            {
+                                ""label"": ""Mar""
+                            },
+                            {
+                                ""label"": ""Apr""
+                            },
+                            {
+                                ""label"": ""May""
+                            },
+                            {
+                                ""label"": ""Jun""
+                            },
+                            {
+                                ""label"": ""Jul""
+                            },
+                            {
+                                ""label"": ""Aug""
+                            },
+                            {
+                                ""label"": ""Sep""
+                            },
+                            {
+                                ""label"": ""Oct""
+                            },
+                            {
+                                ""label"": ""Nov""
+                            },
+                            {
+                                ""label"": ""Dec""
+                            }
+                        ]
+                    }],
+                    ""dataset"": [{
+                            ""seriesName"": ""Revenues"",
+                            ""data"": [{
+                                    ""value"": ""16000""
+                                },
+                                {
+                                    ""value"": ""20000""
+                                },
+                                {
+                                    ""value"": ""18000""
+                                },
+                                {
+                                    ""value"": ""19000""
+                                },
+                                {
+                                    ""value"": ""15000""
+                                },
+                                {
+                                    ""value"": ""21000""
+                                },
+                                {
+                                    ""value"": ""16000""
+                                },
+                                {
+                                    ""value"": ""20000""
+                                },
+                                {
+                                    ""value"": ""17000""
+                                },
+                                {
+                                    ""value"": ""22000""
+                                },
+                                {
+                                    ""value"": ""19000""
+                                },
+                                {
+                                    ""value"": ""23000""
+                                }
+                            ]
+                        },
+                        {
+                            ""seriesName"": ""Profits"",
+                            ""renderAs"": ""area"",
+                            ""showValues"": ""0"",
+                            ""data"": [{
+                                    ""value"": ""4000""
+                                },
+                                {
+                                    ""value"": ""5000""
+                                },
+                                {
+                                    ""value"": ""3000""
+                                },
+                                {
+                                    ""value"": ""4000""
+                                },
+                                {
+                                    ""value"": ""1000""
+                                },
+                                {
+                                    ""value"": ""7000""
+                                },
+                                {
+                                    ""value"": ""1000""
+                                },
+                                {
+                                    ""value"": ""4000""
+                                },
+                                {
+                                    ""value"": ""1000""
+                                },
+                                {
+                                    ""value"": ""8000""
+                                },
+                                {
+                                    ""value"": ""2000""
+                                },
+                                {
+                                    ""value"": ""7000""
+                                }
+                            ]
+                        },
+                        {
+                            ""seriesName"": ""Profit %"",
+                            ""parentYAxis"": ""S"",
+                            ""renderAs"": ""line"",
+                            ""showValues"": ""0"",
+                            ""data"": [{
+                                    ""value"": ""25"",
+                                    ""color"": ""#00FFFF"",
+                                    ""alpha"": 42,
+                                    ""anchorBgColor"": ""#FF0000"",
+                                    ""anchorBgAlpha"": ""52"",
+                                    ""anchorAlpha"": ""84"",
+                                    ""anchorBorderColor"": ""#00FF00"",
+                                    ""anchorBorderThickness"": ""4"",
+                                    ""anchorRadius"": ""11"",
+                                    ""anchorSides"": ""5"",
+                                    ""anchorStartAngle"": ""65"",
+                                    ""anchorHoverColor"": ""#0000FF"",
+                                    ""anchorHoverAlpha"": ""93"",
+                                    ""anchorHoverSides"": ""8"",
+                                    ""dashed"": 1,
+                                    ""valuePosition"": ""ABOVE"",
+                                    ""lineDashed"": 1,
+                                    ""_link"": ""http://yahoo.com/""
+                                },
+                                {
+                                    ""value"": ""25""
+                                },
+                                {
+                                    ""value"": ""16.66""
+                                },
+                                {
+                                    ""value"": ""21.05""
+                                },
+                                {
+                                    ""value"": ""6.66""
+                                },
+                                {
+                                    ""value"": ""33.33""
+                                },
+                                {
+                                    ""value"": ""6.25""
+                                },
+                                {
+                                    ""value"": ""25""
+                                },
+                                {
+                                    ""value"": ""5.88""
+                                },
+                                {
+                                    ""value"": ""36.36""
+                                },
+                                {
+                                    ""value"": ""10.52""
+                                },
+                                {
+                                    ""value"": ""30.43""
+                                }
+                            ]
+                        }
+                    ]
+                }
+            });
+            froalacharts.render();
+
+
+        });
+    </script>
+</head>
+
+<body>
+     <div id=""chart-container"">FroalaCharts XT will load here!</div>
+
+</body>
+
+</html>"
+,
+bar,"<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+    <script src=""./build/froalacharts/froalacharts.js""></script>
+
+      <script type=""text/javascript"">   
+	 var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+
+        var data = {
+            chart: {
+    caption: ""Split of visitors by Channels"",
+    placevaluesinside: ""1"",
+    showvalues: ""0"",
+    plottooltext: ""<b>$dataValue</b> visitors from $label in $seriesName"",
+    theme: ""fusion""
+  },
+  categories: [
+    {
+      category: [
+        {
+          label: ""Organic""
+        },
+        {
+          label: ""Offline Stores""
+        },
+        {
+          label: ""Email Campaigns""
+        },
+        {
+          label: ""Social Events""
+        },
+        {
+          label: ""Paid Channels""
+        }
+      ]
+    }
+  ],
+  dataset: [
+    {
+      seriesname: ""2017"",
+      data: [
+        {
+          value: ""17000""
+        },
+        {
+          value: ""19500""
+        },
+        {
+          value: ""12500""
+        },
+        {
+          value: ""14500""
+        },
+        {
+          value: ""17500""
+        }
+      ]
+    },
+    {
+      seriesname: ""2018"",
+      data: [
+        {
+          value: ""25400""
+        },
+        {
+          value: ""29800""
+        },
+        {
+          value: ""21800""
+        },
+        {
+          value: ""19500""
+        },
+        {
+          value: ""21200""
+        }
+      ]
+    }
+  ],
+  trendlines: [
+    {
+      line: [
+        {
+          startvalue: ""16200"",
+          color: ""#5D62B5"",
+          thickness: ""1.5"",
+          displayvalue: ""2017's Avg.""
+        },
+        {
+          startvalue: ""23500"",
+          color: ""#29C3BE"",
+          thickness: ""1.5"",
+          displayvalue: ""2018's Avg.""
+        }
+      ]
+    }
+  ]
+};
+
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'bar',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            froalacharts.render();
+        });
+    </script>
+    
+</head>
+
+
+<div id=""msg"" class=""mb-20""> Chart data in the selected format will be displayed here.</div>
+
+<body>
+   
+	 <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+,
+radar,"<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+    <script src=""./build/froalacharts/froalacharts.js""></script>
+
+      <script type=""text/javascript"">   
+	var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+       var data = {  
+        chart: {
+    caption: ""Skill Analysis of Harry"",
+    subcaption: ""Scale: 1 (low) to 5 (high)"",
+    theme: ""fusion"",
+    showlegend: ""0"",
+    showdivlinevalues: ""0"",
+    showlimits: ""0"",
+    showvalues: ""1"",
+    plotfillalpha: ""40"",
+    plottooltext: ""Harry's <b>$label</b> skill is rated as <b>$value</b>""
+  },
+  categories: [
+    {
+      category: [
+        {
+          label: ""Communication""
+        },
+        {
+          label: ""Punctuality""
+        },
+        {
+          label: ""Problem Solving""
+        },
+        {
+          label: ""Meeting Deadlines""
+        },
+        {
+          label: ""Team Player""
+        },
+        {
+          label: ""Technical Knowledge""
+        }
+      ]
+    }
+  ],
+  dataset: [
+    {
+      seriesname: ""User Ratings"",
+      data: [
+        {
+          value: ""3""
+        },
+        {
+          value: ""3""
+        },
+        {
+          value: ""4""
+        },
+        {
+          value: ""3""
+        },
+        {
+          value: ""2""
+        },
+        {
+          value: ""4""
+        }
+      ]
+    }
+  ]
+};
+
+
+FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'radar',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            fusioncharts.render();
+        });
+    </script>
+    
+</head>
+
+
+<div id=""msg"" class=""mb-20""> Chart data in the selected format will be displayed here.</div>
+
+<body>
+    <div id=""chart-container"">FusionCharts will render here</div>
+</body>
+
+</html>"
+,
+area,"<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+    <script src=""./build/froalacharts/froalacharts.js""></script>
+
+      <script type=""text/javascript"">   
+	var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        var data = {
+            chart: {
+    caption: ""GDP Growth Rate Comparison"",
+    yaxisname: ""Quarterly GDP Growth Rate in %"",
+    subcaption: ""India vs China"",
+    drawcrossline: ""1"",
+    numbersuffix: ""%"",
+    plottooltext: ""$seriesName's GDP grew $dataValue in $label"",
+    theme: ""fusion""
+  },
+  categories: [
+    {
+      category: [
+        {
+          label: ""April 2016""
+        },
+        {
+          label: ""July 2016""
+        },
+        {
+          label: ""Oct 2016""
+        },
+        {
+          label: ""Jan 2017""
+        },
+        {
+          label: ""April 2017""
+        }
+      ]
+    }
+  ],
+  dataset: [
+    {
+      seriesname: ""India"",
+      data: [
+        {
+          value: ""9.2""
+        },
+        {
+          value: ""7.9""
+        },
+        {
+          value: ""7.5""
+        },
+        {
+          value: ""7""
+        },
+        {
+          value: ""6.1""
+        }
+      ]
+    },
+    {
+      seriesname: ""China"",
+      data: [
+        {
+          value: ""6.7""
+        },
+        {
+          value: ""6.7""
+        },
+        {
+          value: ""6.7""
+        },
+        {
+          value: ""6.8""
+        },
+        {
+          value: ""6.9""
+        }
+      ]
+    }
+  ]
+};
+
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'area',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            fusioncharts.render();
+        });
+    </script>
+    
+</head>
+
+
+<div id=""msg"" class=""mb-20""> Chart data in the selected format will be displayed here.</div>
+
+<body>
+    <div id=""chart-container"">FusionCharts will render here</div>
+</body>
+
+</html>"
+,
+line,"<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+    <script src=""./build/froalacharts/froalacharts.js""></script>
+
+      <script type=""text/javascript""> 
+var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }	
+        var data = {
+            chart: {
+    caption: ""Reach of Social Media Platforms amoung youth"",
+    yaxisname: ""% of youth on this platform"",
+    subcaption: ""2012-2016"",
+    showhovereffect: ""1"",
+    numbersuffix: ""%"",
+    drawcrossline: ""1"",
+    plottooltext: ""<b>$dataValue</b> of youth were on $seriesName"",
+    theme: ""fusion""
+  },
+  categories: [
+    {
+      category: [
+        {
+          label: ""2012""
+        },
+        {
+          label: ""2013""
+        },
+        {
+          label: ""2014""
+        },
+        {
+          label: ""2015""
+        },
+        {
+          label: ""2016""
+        }
+      ]
+    }
+  ],
+  dataset: [
+    {
+      seriesname: ""Facebook"",
+      data: [
+        {
+          value: ""620""
+        },
+        {
+          value: ""640""
+        },
+        {
+          value: ""650""
+        },
+        {
+          value: ""660""
+        },
+        {
+          value: ""780""
+        }
+      ]
+    },
+    {
+      seriesname: ""Instagram"",
+      data: [
+        {
+          value: ""16""
+        },
+        {
+          value: ""28""
+        },
+        {
+          value: ""34""
+        },
+        {
+          value: ""42""
+        },
+        {
+          value: ""54""
+        }
+      ]
+    },
+    {
+      seriesname: ""LinkedIn"",
+      data: [
+        {
+          value: ""20""
+        },
+        {
+          value: ""22""
+        },
+        {
+          value: ""27""
+        },
+        {
+          value: ""22""
+        },
+        {
+          value: ""29""
+        }
+      ]
+    },
+    {
+      seriesname: ""Twitter"",
+      data: [
+        {
+          value: ""18""
+        },
+        {
+          value: ""19""
+        },
+        {
+          value: ""21""
+        },
+        {
+          value: ""21""
+        },
+        {
+          value: ""24""
+        }
+      ]
+    }
+  ]
+};
+
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'line',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            fusioncharts.render();
+        });
+    </script>
+    
+</head>
+
+
+<div id=""msg"" class=""mb-20""> Chart data in the selected format will be displayed here.</div>
+
+<body>
+    <div id=""chart-container"">FusionCharts will render here</div>
+</body>
+
+</html>"
+,
+stackedcolumn,"<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+    <script src=""./build/froalacharts/froalacharts.js""></script>
+
+      <script type=""text/javascript"">   
+	var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        var data = {
+            chart: {
+    caption: ""Yearly Energy Production Rate"",
+    subcaption: "" Top 5 Developed Countries"",
+    numbersuffix: "" TWh"",
+    showsum: ""1"",
+    plottooltext:
+      ""$label produces <b>$dataValue</b> of energy from $seriesName"",
+    theme: ""fusion"",
+    drawcrossline: ""1""
+  },
+  categories: [
+    {
+      category: [
+        {
+          label: ""Canada""
+        },
+        {
+          label: ""China""
+        },
+        {
+          label: ""Russia""
+        },
+        {
+          label: ""Australia""
+        },
+        {
+          label: ""United States""
+        },
+        {
+          label: ""France""
+        }
+      ]
+    }
+  ],
+  dataset: [
+    {
+      seriesname: ""Coal"",
+      data: [
+        {
+          value: ""400""
+        },
+        {
+          value: ""830""
+        },
+        {
+          value: ""500""
+        },
+        {
+          value: ""420""
+        },
+        {
+          value: ""790""
+        },
+        {
+          value: ""380""
+        }
+      ]
+    },
+    {
+      seriesname: ""Hydro"",
+      data: [
+        {
+          value: ""350""
+        },
+        {
+          value: ""620""
+        },
+        {
+          value: ""410""
+        },
+        {
+          value: ""370""
+        },
+        {
+          value: ""720""
+        },
+        {
+          value: ""310""
+        }
+      ]
+    },
+    {
+      seriesname: ""Nuclear"",
+      data: [
+        {
+          value: ""210""
+        },
+        {
+          value: ""400""
+        },
+        {
+          value: ""450""
+        },
+        {
+          value: ""180""
+        },
+        {
+          value: ""570""
+        },
+        {
+          value: ""270""
+        }
+      ]
+    },
+    {
+      seriesname: ""Gas"",
+      data: [
+        {
+          value: ""180""
+        },
+        {
+          value: ""330""
+        },
+        {
+          value: ""230""
+        },
+        {
+          value: ""160""
+        },
+        {
+          value: ""440""
+        },
+        {
+          value: ""350""
+        }
+      ]
+    },
+    {
+      seriesname: ""Oil"",
+      data: [
+        {
+          value: ""60""
+        },
+        {
+          value: ""200""
+        },
+        {
+          value: ""200""
+        },
+        {
+          value: ""50""
+        },
+        {
+          value: ""230""
+        },
+        {
+          value: ""150""
+        }
+      ]
+    }
+  ]
+};
+
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'stackedcolumn',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            fusioncharts.render();
+        });
+    </script>
+    
+</head>
+
+
+<div id=""msg"" class=""mb-20""> Chart data in the selected format will be displayed here.</div>
+
+<body>
+    <div id=""chart-container"">FusionCharts will render here</div>
+</body>
+
+</html>"
+,
+stackedbar,"<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+    <script src=""./build/froalacharts/froalacharts.js""></script>
+      <script type=""text/javascript"">   
+	var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }	
+        var data = {
+            chart: {
+    caption: ""Split of visitors by Channels & Gender"",
+    placevaluesinside: ""1"",
+    showvalues: ""0"",
+    plottooltext: ""<b>$dataValue</b>  $seriesName visitors"",
+    theme: ""fusion""
+  },
+  categories: [
+    {
+      category: [
+        {
+          label: ""Organic""
+        },
+        {
+          label: ""Offline Stores""
+        },
+        {
+          label: ""Email Campaigns""
+        },
+        {
+          label: ""Social Events""
+        },
+        {
+          label: ""Paid Channels""
+        }
+      ]
+    }
+  ],
+  dataset: [
+    {
+      seriesname: ""Male"",
+      data: [
+        {
+          value: ""17000""
+        },
+        {
+          value: ""19500""
+        },
+        {
+          value: ""12500""
+        },
+        {
+          value: ""14500""
+        },
+        {
+          value: ""17500""
+        }
+      ]
+    },
+    {
+      seriesname: ""Female"",
+      data: [
+        {
+          value: ""25400""
+        },
+        {
+          value: ""29800""
+        },
+        {
+          value: ""21800""
+        },
+        {
+          value: ""19500""
+        },
+        {
+          value: ""21200""
+        }
+      ]
+    }
+  ]
+};
+
+
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'stackedbar',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            fusioncharts.render();
+        });
+    </script>
+    
+</head>
+
+
+<div id=""msg"" class=""mb-20""> Chart data in the selected format will be displayed here.</div>
+
+<body>
+    <div id=""chart-container"">FusionCharts will render here</div>
+</body>
+
+</html>"
+,
+stackedarea,"<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+    <script src=""./build/froalacharts/froalacharts.js""></script>
+
+      <script type=""text/javascript"">   
+	var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }	
+        var data = {
+            chart: {
+    caption: ""Yearly Energy Production"",
+    numbersuffix: "" TWh"",
+    formatnumberscale: ""0"",
+    showvalues: ""0"",
+    drawcrossline: ""1"",
+    showsum: ""1"",
+    plottooltext: ""$dataValue from $seriesName"",
+    theme: ""fusion""
+  },
+  categories: [
+    {
+      category: [
+        {
+          label: ""Canada""
+        },
+        {
+          label: ""China""
+        },
+        {
+          label: ""Russia""
+        },
+        {
+          label: ""Australia""
+        },
+        {
+          label: ""United States""
+        },
+        {
+          label: ""France""
+        }
+      ]
+    }
+  ],
+  dataset: [
+    {
+      seriesname: ""Coal"",
+      data: [
+        {
+          value: ""400""
+        },
+        {
+          value: ""830""
+        },
+        {
+          value: ""500""
+        },
+        {
+          value: ""420""
+        },
+        {
+          value: ""790""
+        },
+        {
+          value: ""380""
+        }
+      ]
+    },
+    {
+      seriesname: ""Hydro"",
+      data: [
+        {
+          value: ""350""
+        },
+        {
+          value: ""620""
+        },
+        {
+          value: ""410""
+        },
+        {
+          value: ""370""
+        },
+        {
+          value: ""720""
+        },
+        {
+          value: ""310""
+        }
+      ]
+    },
+    {
+      seriesname: ""Nuclear"",
+      data: [
+        {
+          value: ""210""
+        },
+        {
+          value: ""400""
+        },
+        {
+          value: ""450""
+        },
+        {
+          value: ""180""
+        },
+        {
+          value: ""570""
+        },
+        {
+          value: ""270""
+        }
+      ]
+    },
+    {
+      seriesname: ""Gas"",
+      data: [
+        {
+          value: ""180""
+        },
+        {
+          value: ""330""
+        },
+        {
+          value: ""230""
+        },
+        {
+          value: ""160""
+        },
+        {
+          value: ""440""
+        },
+        {
+          value: ""350""
+        }
+      ]
+    },
+    {
+      seriesname: ""Oil"",
+      data: [
+        {
+          value: ""60""
+        },
+        {
+          value: ""200""
+        },
+        {
+          value: ""200""
+        },
+        {
+          value: ""50""
+        },
+        {
+          value: ""230""
+        },
+        {
+          value: ""150""
+        }
+      ]
+    }
+  ]
+};
+
+
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'stackedarea',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            fusioncharts.render();
+        });
+    </script>
+    
+</head>
+
+
+<div id=""msg"" class=""mb-20""> Chart data in the selected format will be displayed here.</div>
+
+<body>
+    <div id=""chart-container"">FusionCharts will render here</div>
+</body>
+
+</html>"
+,
+scatter,"<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+    <script src=""./build/froalacharts/froalacharts.js""></script>
+
+      <script type=""text/javascript"">   
+	var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }	
+        var data = {
+            chart: {
+    caption: ""Sales of Ice creams at Broadway Store"",
+    subcaption: ""Sales vs. Avg. Temperature<br>Los Angeles Topanga"",
+    xaxisname: ""Avg. Temperature"",
+    yaxisname: ""Sales (In USD)"",
+    xaxisminvalue: ""20"",
+    xaxismaxvalue: ""100"",
+    ynumberprefix: ""$"",
+    yaxisminvalue: ""1200"",
+    xnumbersuffix: ""°F"",
+    theme: ""fusion"",
+    showlegend: ""0"",
+    plottooltext:
+      ""<b>$yDataValue</b> worth <b>$seriesNames</b> were sold,<br>when temperature was <b>$xDataValue</b>""
+  },
+  categories: [
+    {
+      verticallinedashed: ""1"",
+      verticallinedashlen: ""1"",
+      verticallinedashgap: ""1"",
+      verticallinethickness: ""1"",
+      verticallinecolor: ""#000000"",
+      category: [
+        {
+          x: ""20"",
+          label: ""20°F"",
+          showverticalline: ""0""
+        },
+        {
+          x: ""40"",
+          label: ""40°F""
+        },
+        {
+          x: ""60"",
+          label: ""60°F""
+        },
+        {
+          x: ""80"",
+          label: ""80°F""
+        },
+        {
+          x: ""100"",
+          label: ""100°F""
+        }
+      ]
+    }
+  ],
+  dataset: [
+    {
+      seriesname: ""Ice Cream"",
+      anchorbgcolor: ""5D62B5"",
+      data: [
+        {
+          x: ""21"",
+          y: ""1450""
+        },
+        {
+          x: ""22"",
+          y: ""1490""
+        },
+        {
+          x: ""23"",
+          y: ""1560""
+        },
+        {
+          x: ""24"",
+          y: ""1500""
+        },
+        {
+          x: ""24"",
+          y: ""1680""
+        },
+        {
+          x: ""25"",
+          y: ""1780""
+        },
+        {
+          x: ""25"",
+          y: ""1620""
+        },
+        {
+          x: ""26"",
+          y: ""1810""
+        },
+        {
+          x: ""27"",
+          y: ""2310""
+        },
+        {
+          x: ""29"",
+          y: ""2620""
+        },
+        {
+          x: ""31"",
+          y: ""2500""
+        },
+        {
+          x: ""32"",
+          y: ""2410""
+        },
+        {
+          x: ""33"",
+          y: ""2530""
+        },
+        {
+          x: ""34"",
+          y: ""3280""
+        },
+        {
+          x: ""35"",
+          y: ""2880""
+        },
+        {
+          x: ""36"",
+          y: ""3910""
+        },
+        {
+          x: ""34"",
+          y: ""3960""
+        },
+        {
+          x: ""38"",
+          y: ""4080""
+        },
+        {
+          x: ""37"",
+          y: ""3880""
+        },
+        {
+          x: ""39"",
+          y: ""3910""
+        },
+        {
+          x: ""39"",
+          y: ""4210""
+        },
+        {
+          x: ""40"",
+          y: ""4190""
+        },
+        {
+          x: ""41"",
+          y: ""4170""
+        },
+        {
+          x: ""42"",
+          y: ""4280""
+        },
+        {
+          x: ""43"",
+          y: ""4350""
+        },
+        {
+          x: ""44"",
+          y: ""4880""
+        },
+        {
+          x: ""45"",
+          y: ""4700""
+        },
+        {
+          x: ""47"",
+          y: ""5100""
+        },
+        {
+          x: ""48"",
+          y: ""5190""
+        },
+        {
+          x: ""48"",
+          y: ""5000""
+        },
+        {
+          x: ""49"",
+          y: ""5210""
+        },
+        {
+          x: ""50"",
+          y: ""5110""
+        },
+        {
+          x: ""50"",
+          y: ""5200""
+        },
+        {
+          x: ""52"",
+          y: ""5210""
+        },
+        {
+          x: ""53"",
+          y: ""5330""
+        },
+        {
+          x: ""54"",
+          y: ""5180""
+        },
+        {
+          x: ""53"",
+          y: ""5770""
+        },
+        {
+          x: ""55"",
+          y: ""5900""
+        },
+        {
+          x: ""56"",
+          y: ""5940""
+        },
+        {
+          x: ""58"",
+          y: ""6090""
+        },
+        {
+          x: ""61"",
+          y: ""6086""
+        },
+        {
+          x: ""62"",
+          y: ""6185""
+        },
+        {
+          x: ""63"",
+          y: ""6815""
+        },
+        {
+          x: ""62"",
+          y: ""6273""
+        },
+        {
+          x: ""64"",
+          y: ""6143""
+        },
+        {
+          x: ""65"",
+          y: ""6151""
+        },
+        {
+          x: ""67"",
+          y: ""6100""
+        },
+        {
+          x: ""68"",
+          y: ""6200""
+        },
+        {
+          x: ""70"",
+          y: ""6360""
+        },
+        {
+          x: ""71"",
+          y: ""6860""
+        },
+        {
+          x: ""71"",
+          y: ""6150""
+        },
+        {
+          x: ""72"",
+          y: ""6150""
+        },
+        {
+          x: ""73"",
+          y: ""6273""
+        },
+        {
+          x: ""74"",
+          y: ""6650""
+        },
+        {
+          x: ""74"",
+          y: ""6133""
+        },
+        {
+          x: ""75"",
+          y: ""6450""
+        },
+        {
+          x: ""79"",
+          y: ""6650""
+        },
+        {
+          x: ""80"",
+          y: ""6710""
+        },
+        {
+          x: ""79"",
+          y: ""6975""
+        },
+        {
+          x: ""82"",
+          y: ""7000""
+        },
+        {
+          x: ""85"",
+          y: ""7150""
+        },
+        {
+          x: ""86"",
+          y: ""7160""
+        },
+        {
+          x: ""86"",
+          y: ""7200""
+        },
+        {
+          x: ""88"",
+          y: ""7230""
+        },
+        {
+          x: ""87"",
+          y: ""7210""
+        },
+        {
+          x: ""86"",
+          y: ""7480""
+        },
+        {
+          x: ""89"",
+          y: ""7540""
+        },
+        {
+          x: ""89"",
+          y: ""7400""
+        },
+        {
+          x: ""90"",
+          y: ""7500""
+        },
+        {
+          x: ""92"",
+          y: ""7640""
+        },
+        {
+          x: ""90"",
+          y: ""7340""
+        },
+        {
+          x: ""94"",
+          y: ""7840""
+        },
+        {
+          x: ""95"",
+          y: ""7140""
+        },
+        {
+          x: ""95"",
+          y: ""7510""
+        },
+        {
+          x: ""96"",
+          y: ""6940""
+        },
+        {
+          x: ""97"",
+          y: ""7100""
+        },
+        {
+          x: ""98"",
+          y: ""7840""
+        }
+      ]
+    }
+  ]
+};
+
+
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'scatter',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            fusioncharts.render();
+        });
+    </script>
+    
+</head>
+
+<body>
+    <div id=""chart-container"">FusionCharts will render here</div>
+</body>
+
+</html>"
+,
+,
+,
+pie_du_cancelled,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include froalacharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    
+    <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+
+        FroalaCharts.addEventListener('beforedataupdate', function (e, d) {
+            e.preventDefault()
+        });
+
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'jsonurl',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: ""https://static.fusioncharts.com/fiddle/getSampleJSON.php""
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_dlreq_cancelled,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include froalacharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    
+    <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+
+        FroalaCharts.addEventListener('dataloadrequested', function (e, d) {
+            e.preventDefault()
+        });
+
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'jsonurl',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: ""https://static.fusioncharts.com/fiddle/getSampleJSON.php""
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_invalid,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include fusioncharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+   
+    <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: ""some invalid data""
+            });
+            fusioncharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pyramid,"<html>
+
+<head>
+      <title>My first chart using FusionCharts Suite XT</title>
+     
+    <script src=""./build/froalacharts/froalacharts.js""></script>
+
+      <script type=""text/javascript"">  
+	var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }		
+	
+       var data = {  
+        chart: {
+    theme: ""fusion"",
+    is2D: ""1"",
+    caption: ""The Global Wealth Pyramid"",
+    subcaption: ""Credit Suisse 2017"",
+    showvalues: ""1"",
+    numbersuffix: "" trn"",
+    numberprefix: ""$"",
+    plottooltext:
+      ""<b>$label</b> of world population owns <b>$dataValue</b> of global wealth""
+  },
+  data: [
+    {
+      label: ""Top 32M"",
+      value: ""128.7""
+    },
+    {
+      label: ""Next 391M"",
+      value: ""111.4""
+    },
+    {
+      label: ""Next 1054M"",
+      value: ""32.5""
+    },
+    {
+      label: ""Last 3474M"",
+      value: ""7.6""
+    }
+  ]
+};       
+
+FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                id: ""chart_1"",
+                type: 'pyramid',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '500',
+                dataSource: data
+            });
+            fusioncharts.render();
+        });
+    </script>
+    
+</head>
+
+
+<div id=""msg"" class=""mb-20""> Chart data in the selected format will be displayed here.</div>
+
+<body>
+    <div id=""chart-container"">FusionCharts will render here</div>
+</body>
+
+</html>"
+,
+sankey,"<html>
+
+<head>
+    <title>My first chart using froalacharts Suite XT</title>
+    <!-- Include froalacharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+    <!-- <script type=""text/javascript"" src=""./build/3.13.4-rc.1/froalacharts.theme.candy.js ""></script>  -->
+    <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'sankey',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    'chart': {
+                        ""enableDrag"": 1,
+                        ""theme"": ""candy"",
+                        ""exportEnabled"": ""1"",
+                        ""exportFileName"": ""DemoExport"",
+                        ""bgImage"": ""https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg""
+                    },
+                    ""links"": [{
+                            ""from"": ""Brazil"",
+                            ""to"": ""Portugal"",
+                            ""value"": 5,
+                            ""alpha"": 100,
+                        },
+                        {
+                            ""from"": ""Brazil"",
+                            ""to"": ""france"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""brazil"",
+                            ""to"": ""Spain"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Brazil"",
+                            ""to"": ""England"",
+                            ""value"": 1,
+                            ""color"": '#ff0000', //[source, target, blend, hex code]
+                            ""alpha"": '100',
+                            ""hoverAlpha"": ""60"",
+                            ""curvature"": ""0""
+                        },
+                        {
+                            ""from"": ""Spain"",
+                            ""to"": ""Zambia"",
+                            ""value"": 5,
+                            ""color"": 'blend', //[source, target, blend, hex code]
+                        },
+                        {
+                            ""from"": ""Zambia"",
+                            ""to"": ""England"",
+                            ""value"": 5,
+                            ""color"": 'blend', //[source, target, blend, hex code]
+                        },
+                        {
+                            ""from"": ""Egypt"",
+                            ""to"": ""Spain"",
+                            ""value"": 5,
+                            ""color"": 'blend', //[source, target, blend, hex code]
+                        },
+                        {
+                            ""from"": ""Greece"",
+                            ""to"": ""Morocco"",
+                            ""value"": 5,
+                            ""color"": 'blend', //[source, target, blend, hex code]
+                        },
+                        {
+                            ""from"": ""Denmark"",
+                            ""to"": ""India"",
+                            ""value"": 5,
+                            ""color"": 'blend', //[source, target, blend, hex code]
+                            ""curvature"": ""0""
+                        },
+                        {
+                            ""from"": ""Mali"",
+                            ""to"": ""Greece"",
+                            ""value"": 5,
+                            ""color"": 'blend', //[source, target, blend, hex code]
+                        },
+                        {
+                            ""from"": ""Canada"",
+                            ""to"": ""Portugal"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Canada"",
+                            ""to"": ""France"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Canada"",
+                            ""to"": ""England"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Mexico"",
+                            ""to"": ""Portugal"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Mexico"",
+                            ""to"": ""France"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Mexico"",
+                            ""to"": ""Spain"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Mexico"",
+                            ""to"": ""England"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""USA"",
+                            ""to"": ""Portugal"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""USA"",
+                            ""to"": ""France"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""USA"",
+                            ""to"": ""Spain"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""USA"",
+                            ""to"": ""England"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Portugal"",
+                            ""to"": ""Angola"",
+                            ""value"": 2
+                        },
+                        {
+                            ""from"": ""Portugal"",
+                            ""to"": ""Senegal"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Portugal"",
+                            ""to"": ""Morocco"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Portugal"",
+                            ""to"": ""South Africa"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""France"",
+                            ""to"": ""Angola"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""France"",
+                            ""to"": ""Senegal"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""France"",
+                            ""to"": ""Mali"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""France"",
+                            ""to"": ""Morocco"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""France"",
+                            ""to"": ""South Africa"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Spain"",
+                            ""to"": ""Senegal"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Spain"",
+                            ""to"": ""Morocco"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""Spain"",
+                            ""to"": ""South Africa"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""England"",
+                            ""to"": ""Angola"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""England"",
+                            ""to"": ""Senegal"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""England"",
+                            ""to"": ""Morocco"",
+                            ""value"": 2
+                        },
+                        {
+                            ""from"": ""England"",
+                            ""to"": ""South Africa"",
+                            ""value"": 7
+                        },
+                        {
+                            ""from"": ""South Africa"",
+                            ""to"": ""China"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""South Africa"",
+                            ""to"": ""India"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""South Africa"",
+                            ""to"": ""Japan"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""Angola"",
+                            ""to"": ""China"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Angola"",
+                            ""to"": ""India"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Angola"",
+                            ""to"": ""Japan"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""Senegal"",
+                            ""to"": ""China"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Senegal"",
+                            ""to"": ""India"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Senegal"",
+                            ""to"": ""Japan"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""Mali"",
+                            ""to"": ""China"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Mali"",
+                            ""to"": ""India"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Mali"",
+                            ""to"": ""Japan"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""Morocco"",
+                            ""to"": ""China"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Morocco"",
+                            ""to"": ""India"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Morocco"",
+                            ""to"": ""Japan"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""Denmark"",
+                            ""to"": ""India"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Denmark"",
+                            ""to"": ""Angola"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Denmark"",
+                            ""to"": ""Japan"",
+                            ""value"": 1
+                        },
+                        {
+                            ""from"": ""Denmark"",
+                            ""to"": ""China"",
+                            ""value"": 20,
+                            ""curvature"": ""0""
+                        }
+                    ],
+                    ""nodes"": [{
+                            ""label"": ""Brazil"",
+                            ""nodeSpacing"": ""100""
+                        },
+                        {
+                            ""label"": ""Canada""
+                        },
+                        {
+                            ""label"": ""Mexico""
+                        },
+                        {
+                            ""label"": ""USA""
+                        },
+                        {
+                            ""label"": ""Portugal""
+                        },
+                        {
+                            ""label"": ""France""
+                        },
+                        {
+                            ""label"": ""Spain""
+                        },
+                        {
+                            ""label"": ""England""
+                        },
+                        {
+                            ""label"": ""South Africa""
+                        },
+                        {
+                            ""label"": ""Angola""
+                        },
+                        {
+                            ""label"": ""Senegal""
+                        },
+                        {
+                            ""label"": ""Mali""
+                        },
+                        {
+                            ""label"": ""Morocco""
+                        },
+                        {
+                            ""label"": ""India""
+                        },
+                        {
+                            ""label"": ""Japan""
+                        },
+                        {
+                            ""label"": ""China"",
+                        },
+                        {
+                            ""label"": ""Zambia""
+                        },
+                        {
+                            ""label"": ""Egypt""
+                        },
+                        {
+                            ""label"": ""Greece""
+                        },
+                        {
+                            ""label"": ""Denmark""
+                        },
+                    ]
+                }
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">froalacharts XT will load here!</div>
+</body>
+
+</html>"
+,
+chord,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include froalacharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+    <!-- <script type=""text/javascript"" src=""./build/3.13.4-rc.1/froalacharts.theme.candy.js ""></script>  -->
+    <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'chord',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    chart: {
+                        drawCustomLegendIcon: 0,
+                        nodeThickness: 30,
+                        nodeLabelColor: ""#0000ff"",
+                        nodeLabelFontSize: 11,
+                        nodeLabelPosition: ""inside"",
+                        nodeHoverAlpha: 100,
+                        nodeSpacing: 14,
+                        nodeBorderThickness: 5,
+                        nodeAlpha: 80,
+                        linkAlpha: 40,
+                        linkBorderAlpha: 40,
+                        linkHoverAlpha: 75,
+                        showPlotBorder: 1,
+                        plotBorderColor: ""#FFFFFF"",
+                        plotBorderAlpha: ""100"",
+                        plotBorderThickness: ""5"",
+                        useHoverColor: ""1"",
+                        showHoverEffect: ""0"",
+                        legendItemHoverFontColor: ""#FF0000"",
+                        caption: ""Chord Diagram"",
+                        subcaption: ""Flows Mentally"",
+                        captionAlignment: ""right"",
+                        captionOnTop: ""1"",
+                        captionFontSize: ""25"",
+                        subCaptionFontSize: ""15"",
+                        captionFont: ""Times"",
+                        subCaptionFont: ""Times"",
+                        captionFontColor: ""#aa00aa"",
+                        subcaptionFontColor: ""#00ff00"",
+                        captionFontBold: ""1"",
+                        subCaptionFontBold: ""0"",
+                        alignCaptionWithCanvas: ""0"",
+                        captionHorizontalPadding: ""40"",
+                        totalAngle: ""360"",
+                        linkBorderThickness: ""5"",
+                        linkBorderColor: ""#00aa00"",
+                        ""bgImage"": ""https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg"",
+                        ""exportenabled"": 1
+                    },
+                    ""nodes"": [{
+                            ""label"": ""Appleeee"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""HTC"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Huawei"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Nokia"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Samsung"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Xaomi"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Lenovo"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Apple1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""HTC1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Huawei1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Nokia1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Samsung1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Xaomi1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Lenovo1"",
+                            ""style"": {}
+                        },
+
+                    ],
+                    ""links"": [{
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Appleeee"",
+                            ""value"": 9.6899
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""HTC"",
+                            ""value"": 0.8859
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Huawei"",
+                            ""value"": 10
+                        },
+                        {
+                            ""from"": ""HTC"",
+                            ""to"": ""Appleeee"",
+                            ""value"": 0.1107
+                        },
+                        {
+                            ""from"": ""HTC"",
+                            ""to"": ""HTC"",
+                            ""value"": 1.8272
+                        },
+                        {
+                            ""from"": ""HTC"",
+                            ""to"": ""Huawei"",
+                            ""value"": 0
+                        },
+                        {
+                            ""from"": ""Huawei"",
+                            ""to"": ""Appleeee"",
+                            ""value"": 10
+                        },
+                        {
+                            ""from"": ""Huawei"",
+                            ""to"": ""HTC"",
+                            ""value"": 0.2769
+                        },
+                        {
+                            ""from"": ""Huawei"",
+                            ""to"": ""Huawei"",
+                            ""value"": 0.2215
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Nokia"",
+                            ""value"": 9.6899
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Samsung"",
+                            ""value"": 0.8859
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Lenovo"",
+                            ""value"": 0.0554
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Xaomi"",
+                            ""value"": 0.1107
+                        },
+                        {
+                            ""from"": ""Lenovo"",
+                            ""to"": ""Samsung"",
+                            ""value"": 1.8272
+                        },
+                        {
+                            ""from"": ""Nokia"",
+                            ""to"": ""Samsung"",
+                            ""value"": 0
+                        },
+                        {
+                            ""from"": ""Huawei"",
+                            ""to"": ""Xaomi"",
+                            ""value"": 0.0554
+                        },
+                        {
+                            ""from"": ""Samsung"",
+                            ""to"": ""HTC"",
+                            ""value"": 0.2769
+                        },
+                        {
+                            ""from"": ""Huawei"",
+                            ""to"": ""Nokia"",
+                            ""value"": 0.2215
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Apple1"",
+                            ""value"": 9.6899
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""HTC1"",
+                            ""value"": 0.8859
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Huawei1"",
+                            ""value"": 10
+                        },
+                        {
+                            ""from"": ""HTC1"",
+                            ""to"": ""Apple1"",
+                            ""value"": 0.1107
+                        },
+                        {
+                            ""from"": ""HTC1"",
+                            ""to"": ""HTC1"",
+                            ""value"": 1.8272
+                        },
+                        {
+                            ""from"": ""HTC1"",
+                            ""to"": ""Huawei1"",
+                            ""value"": 0
+                        },
+                        {
+                            ""from"": ""Huawei1"",
+                            ""to"": ""Apple1"",
+                            ""value"": 10
+                        },
+                        {
+                            ""from"": ""Huawei1"",
+                            ""to"": ""HTC1"",
+                            ""value"": 0.2769
+                        },
+                        {
+                            ""from"": ""Huawei1"",
+                            ""to"": ""Huawei1"",
+                            ""value"": 0.2215
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Nokia1"",
+                            ""value"": 10
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Samsung1"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Lenovo1"",
+                            ""value"": 4
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Xaomi1"",
+                            ""value"": 15
+                        },
+                        {
+                            ""from"": ""Lenovo1"",
+                            ""to"": ""Samsung1"",
+                            ""value"": 11
+                        },
+                        {
+                            ""from"": ""Nokia1"",
+                            ""to"": ""Samsung1"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Huawei1"",
+                            ""to"": ""Xaomi1"",
+                            ""value"": 2
+                        },
+                        {
+                            ""from"": ""Samsung1"",
+                            ""to"": ""HTC1"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""Huawei1"",
+                            ""to"": ""Nokia1"",
+                            ""value"": 5
+                        }
+
+                    ]
+                }
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+pie_nodata,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include froalacharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    
+    <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            e.preventDefault()
+        });
+
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        
+
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'pie',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'jsonurl',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: """"
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+bubble_bgImageError,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    
+    <!-- Include froalacharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    
+    <!-- Include fusion theme -->
+    
+    <!-- <script type=""text/javascript"" src=""./build/3.13.4-rc.1/froalacharts.theme.candy.js ""></script> -->
+    <script type=""text/javascript"">
+        var froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            froalacharts = new FroalaCharts({
+                type: 'bubble',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    ""chart"": {
+                        ""caption"": ""Sales Analysis of Shoe Brands"",
+                        ""subcaption"": ""Last Quarter"",
+                        ""xAxisMinValue"": ""0"",
+                        ""xAxisMaxValue"": ""100"",
+                        ""yAxisMinValue"": ""0"",
+                        ""yAxisMaxValue"": ""30000"",
+                        ""plotFillAlpha"": ""70"",
+                        ""plotFillHoverColor"": ""#6baa01"",
+                        ""xAxisName"": ""Average Price"",
+                        ""yAxisName"": ""Units Sold"",
+                        ""numDivlines"": ""2"",
+                        ""showValues"": ""1"",
+                        ""plotTooltext"": ""$name : Profit Contribution - $zvalue%"",
+                        ""drawQuadrant"": ""1"",
+                        ""quadrantLineAlpha"": ""80"",
+                        ""quadrantLineThickness"": ""3"",
+                        ""quadrantXVal"": ""50"",
+                        ""quadrantYVal"": ""15000"",
+                        ""quadrantLabelTL"": ""Low Price / High Sale"",
+                        ""quadrantLabelTR"": ""High Price / High Sale"",
+                        ""quadrantLabelBL"": ""Low Price / Low Sale"",
+                        ""quadrantLabelBR"": ""High Price / Low Sale"",
+                        ""use3dlighting"": ""0"",
+                        ""showAlternateHGridColor"": ""0"",
+                        ""showAlternateVGridColor"": ""0"",
+                        ""theme"": ""fusion"",
+                        ""bgImage"": ""https://__upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg""
+
+                    },
+                    ""categories"": [{
+                        ""category"": [{
+                                ""label"": ""$0"",
+                                ""x"": ""0""
+                            },
+                            {
+                                ""label"": ""$20"",
+                                ""x"": ""20"",
+                                ""showverticalline"": ""1""
+                            },
+                            {
+                                ""label"": ""$40"",
+                                ""x"": ""40"",
+                                ""showverticalline"": ""1""
+                            },
+                            {
+                                ""label"": ""$60"",
+                                ""x"": ""60"",
+                                ""showverticalline"": ""1""
+                            },
+                            {
+                                ""label"": ""$80"",
+                                ""x"": ""80"",
+                                ""showverticalline"": ""1""
+                            },
+                            {
+                                ""label"": ""$100"",
+                                ""x"": ""100"",
+                                ""showverticalline"": ""1""
+                            }
+                        ]
+                    }],
+                    ""dataset"": [{
+                        ""color"": ""#00aee4"",
+                        ""data"": [{
+                                ""x"": ""80"",
+                                ""y"": ""15000"",
+                                ""z"": ""24"",
+                                ""name"": ""Nike""
+                            },
+                            {
+                                ""x"": ""60"",
+                                ""y"": ""18500"",
+                                ""z"": ""26"",
+                                ""name"": ""Adidas""
+                            },
+                            {
+                                ""x"": ""50"",
+                                ""y"": ""19450"",
+                                ""z"": ""19"",
+                                ""name"": ""Puma""
+                            },
+                            {
+                                ""x"": ""65"",
+                                ""y"": ""10500"",
+                                ""z"": ""8"",
+                                ""name"": ""Fila""
+                            },
+                            {
+                                ""x"": ""43"",
+                                ""y"": ""8750"",
+                                ""z"": ""5"",
+                                ""name"": ""Lotto""
+                            },
+                            {
+                                ""x"": ""32"",
+                                ""y"": ""22000"",
+                                ""z"": ""10"",
+                                ""name"": ""Reebok""
+                            },
+                            {
+                                ""x"": ""44"",
+                                ""y"": ""13000"",
+                                ""z"": ""9"",
+                                ""name"": ""Woodland""
+                            }
+                        ]
+                    }],
+                    ""trendlines"": [{
+                        ""line"": [{
+                                ""startValue"": ""20000"",
+                                ""endValue"": ""30000"",
+                                ""isTrendZone"": ""1"",
+                                ""color"": ""#aaaaaa"",
+                                ""alpha"": ""14""
+                            },
+                            {
+                                ""startValue"": ""10000"",
+                                ""endValue"": ""20000"",
+                                ""isTrendZone"": ""1"",
+                                ""color"": ""#aaaaaa"",
+                                ""alpha"": ""7""
+                            }
+                        ]
+                    }],
+                    ""vTrendlines"": [{
+                        ""line"": [{
+                            ""startValue"": ""44"",
+                            ""isTrendZone"": ""0"",
+                            ""color"": ""#0066cc"",
+                            ""thickness"": ""1"",
+                            ""dashed"": ""1"",
+                            ""displayValue"": ""Gross Avg.""
+                        }]
+                    }]
+                }
+            });
+            froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+</body>
+
+</html>"
+,
+,
+stackedbar_annot,"<html>
+
+<head>
+      <title>My first chart usingFroalaCharts Suite XT</title>
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+        
+
+      <script type=""text/javascript"">
+
+const dataSource = {
+  ""chart"": {
+    ""caption"": ""Top Finishers"",
+    ""subcaption"": ""2016-2017"",
+    ""yaxisname"": ""Open Play Goals"",
+    ""palettecolors"": ""#E64571, #88D786"",
+    ""plotgradientcolor"": "" "",
+    ""theme"": ""fusion"",
+    ""yaxismaxvalue"": ""30"",
+    ""numdivlines"": ""2"",
+    ""showlegend"": ""1"",
+    ""interactivelegend"": ""0"",
+    ""showvalues"": ""0"",
+    ""showsum"": ""0""
+  },
+  ""categories"": [
+    {
+      ""category"": [
+        {
+          ""label"": ""L.Suarez""
+        },
+        {
+          ""label"": ""L.Messi""
+        },
+        {
+          ""label"": ""G.Higuain""
+        },
+        {
+          ""label"": ""Z.Ibrahimovic""
+        },
+        {
+          ""label"": ""Diego Costa""
+        },
+        {
+          ""label"": ""H.Kane""
+        },
+        {
+          ""label"": ""D.Alli""
+        },
+        {
+          ""label"": ""A.Griezmann""
+        },
+        {
+          ""label"": ""Heung-Min Son""
+        },
+        {
+          ""label"": ""S.Mane""
+        },
+        {
+          ""label"": ""J.King""
+        },
+        {
+          ""label"": ""O.Giroud""
+        },
+        {
+          ""label"": ""R.Nainggolan""
+        },
+        {
+          ""label"": ""A.Robben""
+        },
+        {
+          ""label"": ""Pablo Sarabia""
+        },
+        {
+          ""label"": ""Isco""
+        },
+        {
+          ""label"": ""Rafinha""
+        },
+        {
+          ""label"": ""F.Bernardeschi""
+        }
+      ]
+    }
+  ],
+  ""dataset"": [
+    {
+      ""seriesname"": ""2016"",
+      ""data"": [
+        {
+          ""value"": ""25""
+        },
+        {
+          ""value"": ""18""
+        },
+        {
+          ""value"": ""17""
+        },
+        {
+          ""value"": ""15""
+        },
+        {
+          ""value"": ""16""
+        },
+        {
+          ""value"": ""14""
+        },
+        {
+          ""value"": ""13""
+        },
+        {
+          ""value"": ""11""
+        },
+        {
+          ""value"": ""9""
+        },
+        {
+          ""value"": ""10""
+        },
+        {
+          ""value"": ""10""
+        },
+        {
+          ""value"": ""7""
+        },
+        {
+          ""value"": ""8""
+        },
+        {
+          ""value"": ""8""
+        },
+        {
+          ""value"": ""7""
+        },
+        {
+          ""value"": ""6""
+        },
+        {
+          ""value"": ""6""
+        },
+        {
+          ""value"": ""3""
+        }
+      ]
+    },
+    {
+      ""seriesname"": ""2017"",
+      ""data"": [
+        {
+          ""value"": ""5""
+        },
+        {
+          ""value"": ""8""
+        },
+        {
+          ""value"": ""6""
+        },
+        {
+          ""value"": ""3""
+        },
+        {
+          ""value"": ""2""
+        },
+        {
+          ""value"": ""3""
+        },
+        {
+          ""value"": ""3""
+        },
+        {
+          ""value"": ""4""
+        },
+        {
+          ""value"": ""5""
+        },
+        {
+          ""value"": ""4""
+        },
+        {
+          ""value"": ""3""
+        },
+        {
+          ""value"": ""4""
+        },
+        {
+          ""value"": ""2""
+        },
+        {
+          ""value"": ""3""
+        },
+        {
+          ""value"": ""3""
+        },
+        {
+          ""value"": ""4""
+        },
+        {
+          ""value"": ""2""
+        },
+        {
+          ""value"": ""4""
+        }
+      ]
+    }
+  ],
+  ""annotations"": {
+    ""groups"": [
+      {
+        ""id"": ""infobar"",
+        ""items"": [
+          {
+            ""id"": ""1"",
+            ""type"": ""line"",
+            ""x"": ""$dataset.1.set.1.endx+10"",
+            ""y"": ""$dataset.1.set.1.y"",
+            ""tox"": ""$dataset.1.set.1.endx+50"",
+            ""toy"": ""$dataset.1.set.1.y"",
+            ""color"": ""#2F9AC4"",
+            ""dashed"": ""0"",
+            ""thickness"": ""1""
+          },
+          {
+            ""id"": ""2"",
+            ""type"": ""line"",
+            ""x"": ""$dataset.1.set.1.endx+50"",
+            ""y"": ""$dataset.1.set.1.y"",
+            ""tox"": ""$dataset.1.set.1.endx+50"",
+            ""toy"": ""$dataset.0.set.1.y+50"",
+            ""color"": ""#2F9AC4"",
+            ""dashed"": ""0"",
+            ""thickness"": ""1""
+          },
+          {
+            ""id"": ""3"",
+            ""type"": ""line"",
+            ""x"": ""$dataset.1.set.17.endx+5"",
+            ""y"": ""$dataset.1.set.17.y"",
+            ""tox"": ""$dataset.1.set.17.endx+200"",
+            ""toy"": ""$dataset.0.set.17.y"",
+            ""color"": ""#2F9AC4"",
+            ""dashed"": ""0"",
+            ""thickness"": ""1""
+          },
+          {
+            ""id"": ""4"",
+            ""type"": ""line"",
+            ""x"": ""$dataset.1.set.17.endx+200"",
+            ""y"": ""$dataset.0.set.17.y"",
+            ""tox"": ""$dataset.1.set.17.endx+200"",
+            ""toy"": ""$dataset.0.set.17.y-40"",
+            ""color"": ""#2F9AC4"",
+            ""dashed"": ""0"",
+            ""thickness"": ""1""
+          },
+          {
+            ""id"": ""shape"",
+            ""type"": ""polygon"",
+            ""startangle"": ""180"",
+            ""sides"": ""3"",
+            ""radius"": ""6"",
+            ""color"": ""#2F9AC4"",
+            ""x"": ""$dataset.1.set.17.endx+10"",
+            ""y"": ""$dataset.1.set.17.y""
+          },
+          {
+            ""id"": ""shape"",
+            ""type"": ""polygon"",
+            ""startangle"": ""180"",
+            ""sides"": ""3"",
+            ""radius"": ""6"",
+            ""color"": ""2F9AC4"",
+            ""x"": ""$dataset.1.set.1.endx+10"",
+            ""y"": ""$dataset.1.set.1.y""
+          },
+          {
+            ""id"": ""label1"",
+            ""align"": ""RiGHT"",
+            ""type"": ""text"",
+            ""text"": ""Messi added{br}roughly 7 Goals from{br}his shot quality"",
+            ""fillcolor"": ""#2F9AC4"",
+            ""rotate"": ""90"",
+            ""x"": ""$dataset.1.set.1.endx+65"",
+            ""y"": ""$dataset.0.set.5.y""
+          },
+          {
+            ""id"": ""label2"",
+            ""align"": ""CENTER"",
+            ""type"": ""text"",
+            ""text"": ""Bernardeschi{br}more than doubled{br}his chance quality{br}through shooting"",
+            ""fillcolor"": ""#2F9AC4"",
+            ""rotate"": ""90"",
+            ""x"": ""$dataset.1.set.17.endx+200"",
+            ""y"": ""$dataset.0.set.13.y""
+          }
+        ]
+      }
+    ]
+  }
+};
+
+         FroalaCharts.ready(function() {
+            const myChart = new FroalaCharts({
+               type: ""stackedbar"",
+               renderAt: ""chart-container"",
+               width: ""100%"",
+               height: ""500"",
+               dataFormat: ""json"",
+               dataSource
+            }).render();
+         });
+
+         FroalaCharts.addEventListener('annotationclick', function(e){
+   console.log(e.sender.chartType());
+});
+
+    </script>
+</head>
+
+<body>
+      
+    <div id=""chart-container"">ClonedFroalaCharts will render here</div>
+</body>
+
+</html>"
+,
+,
+bubble_multipleinstances,"<html>
+
+<head>
+      <title>My first chart using FroalaCharts Suite XT</title>
+      
+    <!-- Include fusioncharts core library -->
+      <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+      
+    <!-- Include fusion theme -->
+      
+    <!-- <script type=""text/javascript"" src=""./build/3.13.5-rc.2/fusioncharts.theme.candy.js ""></script>  -->
+      <script type=""text/javascript"">
+        var firstChart,secondChart, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+		var eventCount = {};
+
+        FroalaCharts.addEventListener('chartRollOver', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+			
+			// Count the event triggred
+			if (eventCount[e.eventType] === undefined) { 
+				eventCount[e.eventType] = 0;
+			}
+			eventCount[e.eventType]++;
+		
+            console.log(events);
+            document.body.style.backgroundColor = '#0075c2'
+        });
+		
+		function getEventCount (name) {
+        return eventCount[name];
+		}
+		
+		FroalaCharts.addEventListener('chartRollOut', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+			// Count the event triggred
+			if (eventCount[e.eventType] === undefined) { 
+				eventCount[e.eventType] = 0;
+			}
+			eventCount[e.eventType]++;
+		
+            console.log(events);
+            document.body.style.backgroundColor = '#0075c2'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            firstChart = new FroalaCharts({
+				type: ""bubble"",
+				renderAt: ""chart-container"",
+				width: ""600"",
+				height: ""400"",
+				dataFormat: ""json"",
+
+                dataSource: {
+				  chart: {
+					caption: ""AdWords Campaign Analysis"",
+					subcaption: ""Conversions as % of total"",
+					xaxisname: ""# Conversions"",
+					yaxisname: ""Cost Per Conversion"",
+					numberprefix: ""$"",
+					theme: ""fusion"",
+					plottooltext: ""$name : Share of total conversion: $zvalue%""
+				  },
+				  categories: [
+					{
+					  verticallinealpha: ""20"",
+					  category: [
+						{
+						  label: ""0"",
+						  x: ""0""
+						},
+						{
+						  label: ""1500"",
+						  x: ""1500"",
+						  showverticalline: ""1""
+						},
+						{
+						  label: ""3000"",
+						  x: ""3000"",
+						  showverticalline: ""1""
+						},
+						{
+						  label: ""4500"",
+						  x: ""4500"",
+						  showverticalline: ""1""
+						},
+						{
+						  label: ""6000"",
+						  x: ""6000"",
+						  showverticalline: ""1""
+						}
+					  ]
+					}
+				  ],
+				  dataset: [
+					{
+					  data: [
+						{
+						  x: ""5540"",
+						  y: ""16.09"",
+						  z: ""30.63"",
+						  name: ""Campaign 1""
+						},
+						{
+						  x: ""4406"",
+						  y: ""12.74"",
+						  z: ""24.36"",
+						  name: ""Campaign 2""
+						},
+						{
+						  x: ""1079"",
+						  y: ""15.79"",
+						  z: ""5.97"",
+						  name: ""Campaign 3""
+						},
+						{
+						  x: ""1700"",
+						  y: ""8.27"",
+						  z: ""9.4"",
+						  name: ""Campaign 4""
+						},
+						{
+						  x: ""853"",
+						  y: ""15.89"",
+						  z: ""4.71"",
+						  name: ""Campaign 5""
+						},
+						{
+						  x: ""1202"",
+						  y: ""10.74"",
+						  z: ""6.65"",
+						  name: ""Campaign 6""
+						},
+						{
+						  x: ""2018"",
+						  y: ""6.14"",
+						  z: ""11.16"",
+						  name: ""Campaign 7""
+						},
+						{
+						  x: ""413"",
+						  y: ""19.83"",
+						  z: ""2.28"",
+						  name: ""Campaign 8""
+						},
+						{
+						  x: ""586"",
+						  y: ""13.96"",
+						  z: ""3.24"",
+						  name: ""Campaign 9""
+						},
+						{
+						  x: ""184"",
+						  y: ""15.82"",
+						  z: ""1.02"",
+						  name: ""Campaign 10""
+						},
+						{
+						  x: ""311"",
+						  y: ""5.83"",
+						  z: ""1.72"",
+						  name: ""Campaign 11""
+						},
+						{
+						  x: ""35"",
+						  y: ""10.76"",
+						  z: ""0.19"",
+						  name: ""Campaign 12""
+						},
+						{
+						  x: ""55"",
+						  y: ""2.73"",
+						  z: ""0.3"",
+						  name: ""Campaign 13""
+						},
+						{
+						  x: ""6"",
+						  y: ""21.22"",
+						  z: ""0.03"",
+						  name: ""Campaign 14""
+						}
+					  ]
+					}
+				  ]
+                },
+				events: {
+					""rendered"": function(e) {
+					  e.sender.addEventListener('chartRollOver', chartRollOverHandler);
+					  e.sender.addEventListener('chartRollOut',chartRollOutHandler);
+					}
+				}
+            });
+            firstChart.render();
+			
+            secondChart = new FroalaCharts({
+				type: ""bubble"",
+				renderAt: ""chart-container1"",
+				width: ""600"",
+				height: ""400"",
+				dataFormat: ""json"",
+
+                dataSource: {
+				  chart: {
+					caption: ""AdWords Campaign Analysis"",
+					subcaption: ""Conversions as % of total"",
+					xaxisname: ""# Conversions"",
+					yaxisname: ""Cost Per Conversion"",
+					numberprefix: ""$"",
+					theme: ""fusion"",
+					plottooltext: ""$name : Share of total conversion: $zvalue%""
+				  },
+				  categories: [
+					{
+					  verticallinealpha: ""20"",
+					  category: [
+						{
+						  label: ""0"",
+						  x: ""0""
+						},
+						{
+						  label: ""1500"",
+						  x: ""1500"",
+						  showverticalline: ""1""
+						},
+						{
+						  label: ""3000"",
+						  x: ""3000"",
+						  showverticalline: ""1""
+						},
+						{
+						  label: ""4500"",
+						  x: ""4500"",
+						  showverticalline: ""1""
+						},
+						{
+						  label: ""6000"",
+						  x: ""6000"",
+						  showverticalline: ""1""
+						}
+					  ]
+					}
+				  ],
+				  dataset: [
+					{
+					  data: [
+						{
+						  x: ""2540"",
+						  y: ""16.09"",
+						  z: ""30.63"",
+						  name: ""Campaign 1""
+						},
+						{
+						  x: ""3406"",
+						  y: ""12.74"",
+						  z: ""24.36"",
+						  name: ""Campaign 2""
+						},
+						{
+						  x: ""5079"",
+						  y: ""15.79"",
+						  z: ""5.97"",
+						  name: ""Campaign 3""
+						},
+						{
+						  x: ""1700"",
+						  y: ""8.27"",
+						  z: ""9.4"",
+						  name: ""Campaign 4""
+						},
+						{
+						  x: ""853"",
+						  y: ""15.89"",
+						  z: ""4.71"",
+						  name: ""Campaign 5""
+						},
+						{
+						  x: ""2202"",
+						  y: ""10.74"",
+						  z: ""6.65"",
+						  name: ""Campaign 6""
+						},
+						{
+						  x: ""2018"",
+						  y: ""6.14"",
+						  z: ""11.16"",
+						  name: ""Campaign 7""
+						},
+						{
+						  x: ""413"",
+						  y: ""19.83"",
+						  z: ""2.28"",
+						  name: ""Campaign 8""
+						},
+						{
+						  x: ""586"",
+						  y: ""13.96"",
+						  z: ""3.24"",
+						  name: ""Campaign 9""
+						},
+						{
+						  x: ""184"",
+						  y: ""15.82"",
+						  z: ""1.02"",
+						  name: ""Campaign 10""
+						},
+						{
+						  x: ""311"",
+						  y: ""5.83"",
+						  z: ""1.72"",
+						  name: ""Campaign 11""
+						},
+						{
+						  x: ""35"",
+						  y: ""10.76"",
+						  z: ""0.19"",
+						  name: ""Campaign 12""
+						},
+						{
+						  x: ""55"",
+						  y: ""2.73"",
+						  z: ""0.3"",
+						  name: ""Campaign 13""
+						},
+						{
+						  x: ""6"",
+						  y: ""21.22"",
+						  z: ""0.03"",
+						  name: ""Campaign 14""
+						}
+					  ]
+					}
+				  ]
+                },
+				events: {
+					""rendered"": function(e) {
+					  e.sender.addEventListener('chartRollOver', chartRollOverHandler);
+					  e.sender.addEventListener('chartRollOut',chartRollOutHandler);
+					}
+				}
+            });
+            secondChart.render();
+			
+			function chartRollOverHandler(eventObj) {
+			console.log(""rollover"");
+			eventObj.sender.setChartAttribute(""drawAnchors"", ""1"");
+		  }
+
+		  function chartRollOutHandler(eventObj) {
+			console.log(""rollout"");
+			eventObj.sender.setChartAttribute(""drawAnchors"", ""0"");
+		  }
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+	<div id=""chart-container1"">FroalaCharts2 will render here</div>
+</body>
+
+</html>"
+,
+,
+column_dispose,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include fusioncharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+    
+    <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'column',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Logo Events',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+            ""chart"": {
+                ""theme"": ""fint"",
+                    ""caption"": ""Comparison of Quarterly Revenue"",
+                    ""subCaption"": ""Last two years"",
+                    ""xAxisname"": ""Quarter"",
+                    ""yAxisName"": ""Amount ($)"",
+                    ""numberPrefix"": ""$""
+            },
+                ""categories"": [{
+                ""category"": [{
+                    ""label"": ""Q1""
+                }, {
+                    ""label"": ""Q2""
+                }, {
+                    ""label"": ""Q3""
+                }, {
+                    ""label"": ""Q4""
+                }]
+            }],
+                ""dataset"": [{
+                ""seriesname"": ""Previous Year"",
+                    ""data"": [{
+                    ""value"": ""10000""
+                }, {
+                    ""value"": ""11500""
+                }, {
+                    ""value"": ""12500""
+                }, {
+                    ""value"": ""15000""
+                }]
+            }, {
+                ""seriesname"": ""Current Year"",
+                    ""data"": [{
+                    ""value"": ""25400""
+                }, {
+                    ""value"": ""29800""
+                }, {
+                    ""value"": ""21800""
+                }, {
+                    ""value"": ""26800""
+                }]
+            }]
+        }
+            });
+            fusioncharts.render();
+			 document.getElementById(""btn_dispose"").addEventListener('click', function () {
+                fusioncharts.dispose();
+        });
+		});
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+	
+    <button id=""btn_dispose"">Dispose Chart</button>
+</body>
+
+</html>"""
+,
+column_dispose_cancel,"<html>
+
+<head>
+    <title>My first chart using FroalaCharts Suite XT</title>
+    <!-- Include fusioncharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+    <!-- Include fusion theme -->
+    
+    <script type=""text/javascript"">
+        var fusioncharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+		  FroalaCharts.addEventListener('beforeDispose', function (e, d) {
+            e.preventDefault();
+        });
+
+        FroalaCharts.addEventListener('*', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = '#00ff00'
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+        
+        FroalaCharts.ready(function () {
+            fusioncharts = new FroalaCharts({
+                type: 'column',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Logo Events',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+            ""chart"": {
+                ""theme"": ""fint"",
+                    ""caption"": ""Comparison of Quarterly Revenue"",
+                    ""subCaption"": ""Last two years"",
+                    ""xAxisname"": ""Quarter"",
+                    ""yAxisName"": ""Amount ($)"",
+                    ""numberPrefix"": ""$""
+            },
+                ""categories"": [{
+                ""category"": [{
+                    ""label"": ""Q1""
+                }, {
+                    ""label"": ""Q2""
+                }, {
+                    ""label"": ""Q3""
+                }, {
+                    ""label"": ""Q4""
+                }]
+            }],
+                ""dataset"": [{
+                ""seriesname"": ""Previous Year"",
+                    ""data"": [{
+                    ""value"": ""10000""
+                }, {
+                    ""value"": ""11500""
+                }, {
+                    ""value"": ""12500""
+                }, {
+                    ""value"": ""15000""
+                }]
+            }, {
+                ""seriesname"": ""Current Year"",
+                    ""data"": [{
+                    ""value"": ""25400""
+                }, {
+                    ""value"": ""29800""
+                }, {
+                    ""value"": ""21800""
+                }, {
+                    ""value"": ""26800""
+                }]
+            }]
+        }
+            });
+            fusioncharts.render();
+			 document.getElementById(""btn_dispose"").addEventListener('click', function () {
+                fusioncharts.dispose();
+        });
+		});
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container"">FroalaCharts XT will load here!</div>
+	
+    <button id=""btn_dispose"">Dispose Chart</button>
+</body>
+
+</html>"""
+,
+chord_links_nodes_events,"<html>
+
+<head>
+    <title>My first chart using  FroalaCharts Suite XT</title>
+    <!-- Include  froalacharts core library -->
+    <script type=""text/javascript"" src=""./build/froalacharts/froalacharts.js""></script>
+   
+    <script type=""text/javascript"">
+        var  froalacharts, events = {};
+        var key_attr = new Array();
+        var val_attr = new Array();
+
+         FroalaCharts.addEventListener('dataplotrollover', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = e.data.color
+        });
+		
+		 FroalaCharts.addEventListener('dataplotrollout', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = e.data.color
+        });
+
+		 FroalaCharts.addEventListener('dataplotclick', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = e.data.color
+        });
+		
+		 FroalaCharts.addEventListener('linkclick', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = e.data.color
+        });
+		
+		 FroalaCharts.addEventListener('linkrollover', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = e.data.color
+        });
+		
+		 FroalaCharts.addEventListener('linkrollout', function (e, d) {
+            for (var x in e) {
+                var eventName = e.eventType;
+                events[eventName] = {};
+                events[eventName].eObj = e;
+            }
+            console.log(events);
+            document.body.style.backgroundColor = e.data.color
+        });
+
+        window.onerror = function (errorMsg, url, lineNumber, no) {
+            jsError = 'Error: ' + errorMsg + ', Script: ' + url + ', Line: ' + lineNumber;
+        }
+
+         FroalaCharts.ready(function () {
+             froalacharts = new  FroalaCharts({
+                type: 'chord',
+                renderAt: 'chart-container',
+                width: '800',
+                height: '600',
+                dataFormat: 'json',
+                baseChartMessageFont: 'arial',
+                loadMessage: 'Events Automation',
+                loadMessageFontSize: '40',
+                loadMessageColor: '#FF0000',
+
+                dataSource: {
+                    chart: {
+                        drawCustomLegendIcon: 0,
+                        nodeThickness: 30,
+                        nodeLabelColor: ""#0000ff"",
+                        nodeLabelFontSize: 11,
+                        nodeLabelPosition: ""inside"",
+                        nodeHoverAlpha: 100,
+                        nodeSpacing: 14,
+                        nodeBorderThickness: 5,
+                        nodeAlpha: 80,
+                        linkAlpha: 40,
+                        linkBorderAlpha: 40,
+                        linkHoverAlpha: 75,
+                        showPlotBorder: 1,
+                        plotBorderColor: ""#FFFFFF"",
+                        plotBorderAlpha: ""100"",
+                        plotBorderThickness: ""5"",
+                        useHoverColor: ""1"",
+                        showHoverEffect: ""0"",
+                        legendItemHoverFontColor: ""#FF0000"",
+                        caption: ""Chord Diagram"",
+                        subcaption: ""Flows Mentally"",
+                        captionAlignment: ""right"",
+                        captionOnTop: ""1"",
+                        captionFontSize: ""25"",
+                        subCaptionFontSize: ""15"",
+                        captionFont: ""Times"",
+                        subCaptionFont: ""Times"",
+                        captionFontColor: ""#aa00aa"",
+                        subcaptionFontColor: ""#00ff00"",
+                        captionFontBold: ""1"",
+                        subCaptionFontBold: ""0"",
+                        alignCaptionWithCanvas: ""0"",
+                        captionHorizontalPadding: ""40"",
+                        totalAngle: ""360"",
+                        linkBorderThickness: ""5"",
+                        linkBorderColor: ""#00aa00"",
+                        ""bgImage"": ""https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg"",
+                        ""exportenabled"": 1,
+						""numberprefix"": ""$"",
+                    },
+                    ""nodes"": [{
+                            ""label"": ""Appleeee"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""HTC"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Huawei"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Nokia"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Samsung"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Xaomi"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Lenovo"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Apple1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""HTC1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Huawei1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Nokia1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Samsung1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Xaomi1"",
+                            ""style"": {}
+                        },
+                        {
+                            ""label"": ""Lenovo1"",
+                            ""style"": {}
+                        },
+
+                    ],
+                    ""links"": [{
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Appleeee"",
+                            ""value"": 9.6899
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""HTC"",
+                            ""value"": 0.8859
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Huawei"",
+                            ""value"": 10
+                        },
+                        {
+                            ""from"": ""HTC"",
+                            ""to"": ""Appleeee"",
+                            ""value"": 0.1107
+                        },
+                        {
+                            ""from"": ""HTC"",
+                            ""to"": ""HTC"",
+                            ""value"": 1.8272
+                        },
+                        {
+                            ""from"": ""HTC"",
+                            ""to"": ""Huawei"",
+                            ""value"": 0
+                        },
+                        {
+                            ""from"": ""Huawei"",
+                            ""to"": ""Appleeee"",
+                            ""value"": 10
+                        },
+                        {
+                            ""from"": ""Huawei"",
+                            ""to"": ""HTC"",
+                            ""value"": 0.2769
+                        },
+                        {
+                            ""from"": ""Huawei"",
+                            ""to"": ""Huawei"",
+                            ""value"": 0.2215
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Nokia"",
+                            ""value"": 9.6899
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Samsung"",
+                            ""value"": 0.8859
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Lenovo"",
+                            ""value"": 0.0554
+                        },
+                        {
+                            ""from"": ""Appleeee"",
+                            ""to"": ""Xaomi"",
+                            ""value"": 0.1107
+                        },
+                        {
+                            ""from"": ""Lenovo"",
+                            ""to"": ""Samsung"",
+                            ""value"": 1.8272
+                        },
+                        {
+                            ""from"": ""Nokia"",
+                            ""to"": ""Samsung"",
+                            ""value"": 0
+                        },
+                        {
+                            ""from"": ""Huawei"",
+                            ""to"": ""Xaomi"",
+                            ""value"": 0.0554
+                        },
+                        {
+                            ""from"": ""Samsung"",
+                            ""to"": ""HTC"",
+                            ""value"": 0.2769
+                        },
+                        {
+                            ""from"": ""Huawei"",
+                            ""to"": ""Nokia"",
+                            ""value"": 0.2215
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Apple1"",
+                            ""value"": 9.6899
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""HTC1"",
+                            ""value"": 0.8859
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Huawei1"",
+                            ""value"": 10
+                        },
+                        {
+                            ""from"": ""HTC1"",
+                            ""to"": ""Apple1"",
+                            ""value"": 0.1107
+                        },
+                        {
+                            ""from"": ""HTC1"",
+                            ""to"": ""HTC1"",
+                            ""value"": 1.8272
+                        },
+                        {
+                            ""from"": ""HTC1"",
+                            ""to"": ""Huawei1"",
+                            ""value"": 0
+                        },
+                        {
+                            ""from"": ""Huawei1"",
+                            ""to"": ""Apple1"",
+                            ""value"": 10
+                        },
+                        {
+                            ""from"": ""Huawei1"",
+                            ""to"": ""HTC1"",
+                            ""value"": 0.2769
+                        },
+                        {
+                            ""from"": ""Huawei1"",
+                            ""to"": ""Huawei1"",
+                            ""value"": 0.2215
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Nokia1"",
+                            ""value"": 10
+                        },
+						{
+                            ""from"": ""Nokia1"",
+                            ""to"": ""Apple1"",
+                            ""value"": 20
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Samsung1"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Lenovo1"",
+                            ""value"": 4
+                        },
+						{
+                            ""from"": ""Xaomi1"",
+                            ""to"": ""Apple1"",
+                            ""value"": 25
+                        },	
+                        {
+                            ""from"": ""Apple1"",
+                            ""to"": ""Xaomi1"",
+                            ""value"": 15
+                        },
+                        {
+                            ""from"": ""Lenovo1"",
+                            ""to"": ""Samsung1"",
+                            ""value"": 11
+                        },
+                        {
+                            ""from"": ""Nokia1"",
+                            ""to"": ""Samsung1"",
+                            ""value"": 5
+                        },
+                        {
+                            ""from"": ""Huawei1"",
+                            ""to"": ""Xaomi1"",
+                            ""value"": 2
+                        },
+                        {
+                            ""from"": ""Samsung1"",
+                            ""to"": ""HTC1"",
+                            ""value"": 3
+                        },
+                        {
+                            ""from"": ""Huawei1"",
+                            ""to"": ""Nokia1"",
+                            ""value"": 5
+                        }
+
+                    ]
+                }
+            });
+             froalacharts.render();
+        });
+    </script>
+</head>
+
+<body>
+    <div id=""chart-container""> FroalaCharts XT will load here!</div>
+</body>
+
+</html>"

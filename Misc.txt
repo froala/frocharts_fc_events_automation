@@ -1,0 +1,28 @@
+Queries:
+
+
+
+
+
+
+
+Problem Solving:
+
+1>	While using ActionChains functions, do not assign in a variable like "actions = ActionChains(driver)". For every command use "ActionChains(driver)" to call its functions
+
+
+
+
+
+Defects:
+
+1>	dataloadcancelled event is not triggered
+
+
+
+
+
+Read Me:
+
+
+Make sure your have an active internet connection before starting the automation process for certain events that load their data from a web URL.
