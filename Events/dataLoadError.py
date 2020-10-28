@@ -17,6 +17,7 @@ import csv
 def f_dataloaderror(driver,chartType):
     
     try:
+
         
         time.sleep(2)
         

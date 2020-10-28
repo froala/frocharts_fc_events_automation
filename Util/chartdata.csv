@@ -281,7 +281,7 @@ pie_URLerror,"<html>
                 loadMessageFontSize: '40',
                 loadMessageColor: '#FF0000',
 
-                dataSource: '_https://static.fusioncharts.com/fiddle/getSampleJSON.php'
+                dataSource: '_https://static.fusioncharts.com/fiddle/froalacharts/getSampleJSON.php'
             });
             froalacharts.render();
         });
@@ -342,7 +342,7 @@ pie_dlreq_cancelled,"<html>
                 loadMessageFontSize: '40',
                 loadMessageColor: '#FF0000',
 
-                dataSource: ""https://static.fusioncharts.com/fiddle/getSampleJSON.php""
+                dataSource: ""https://static.fusioncharts.com/fiddle/froalacharts/getSampleJSON.php""
             });
             fusioncharts.render();
         });
@@ -3415,7 +3415,7 @@ pie_dlreq_cancelled,"<html>
                 loadMessageFontSize: '40',
                 loadMessageColor: '#FF0000',
 
-                dataSource: ""https://static.fusioncharts.com/fiddle/getSampleJSON.php""
+                dataSource: ""https://static.fusioncharts.com/fiddle/froalacharts/getSampleJSON.php""
             });
             froalacharts.render();
         });

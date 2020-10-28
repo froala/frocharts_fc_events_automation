@@ -1,1 +1,4 @@
-# frocharts_fc_events_automation
+# FC_Events_Automation
+
+README.md
+

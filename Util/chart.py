@@ -34,4 +34,4 @@ def writefile2(chart):
             csvFile.close()
                     
 def url_to_hit():
-    return "http://localhost:84/fc_events_automation/File/NewTestTry.html"
+    return "http://localhost:8080/frocharts_fc_events_automation/File/NewTestTry.html"

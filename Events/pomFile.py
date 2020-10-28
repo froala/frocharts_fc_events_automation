@@ -941,7 +941,8 @@ class PageObjectModel:
             legend_item = legend.find_element_by_tag_name('rect')
             ActionChains(driver).move_to_element(legend_item).perform()
             ActionChains(driver).click(legend_item).perform()
-            ActionChains(driver).move_by_offset(20, 20).perform()
+            ActionChains(driver).move_by_offset(-10,-10).context_click().perform()
+
                 
         except Exception as e:
             report.entry_csv('Generic Legend Item Events', "ERROR: There is an issue with Legend Click or RollOver or RollOut",chartType , "FAIL")
@@ -1157,6 +1158,6 @@ class PageObjectModel:
     
                                
 def loaded_url_chartdata():
-    return "https://static.fusioncharts.com/fiddle/getSampleJSON.php"
+    return "https://static.fusioncharts.com/fiddle/froalacharts/getSampleJSON.php"
                 
                     

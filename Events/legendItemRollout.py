@@ -14,7 +14,6 @@ import csv
 
 
 def f_legenditemrollout(driver, chartType):
-    
     try:
 
         time.sleep(2)
